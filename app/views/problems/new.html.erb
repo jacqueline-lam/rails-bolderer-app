@@ -1,6 +1,6 @@
 <h2>Create a New Problem</h2>
 
-<%= render partial: '/errors', locals: { record: @problem } %>
+<%= render partial: '/errors', locals: { record: @problem } %><br>
 
 <%= form_for @problem do |f| %>
   <%= f.label :wall %>
@@ -16,7 +16,7 @@
   <%= f.label :grade %>
   <%= f.select :grade, options_for_select(Problem::GRADES), prompt: 'Select Grade'  %>
   <br><br>
-  <%= f.label :styles %>
+  <%= f.label :styles %><br>
   <%= f.collection_check_boxes :style_ids, Style.all, :id, :name %>
   <!-- <input type="checkbox" value="1" name="problem[style_ids][]" id="style_id"> -->
   <br><br>
