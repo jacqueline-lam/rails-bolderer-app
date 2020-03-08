@@ -124,3 +124,22 @@ problem_data.each do |data|
   end
 end
 
+send_data = [
+  # Sent by User 1
+  [base_date + 7.day, 5, 'No image by user', user_1.id, "Red V5"],
+  [base_date + 7.day, 1, 'No image by user', user_1.id, "Black V3"],
+  [base_date + 1.day, 2, 'No image by user', user_1.id, "White V4"],
+  [base_date + 3.day, 1, 'No image by user', user_1.id, "Yellow V4"],
+  [base_date + 5.day, 1, 'No image by user', user_1.id, "Black V4"],
+  # Sent by User 2
+  [base_date, 3, '<blockquote class="imgur-embed-pub" lang="en" data-id="WfBSvVr"><a href="//imgur.com/WfBSvVr">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', user_2.id, "Blue V6"],
+  [base_date, 5, '<blockquote class="imgur-embed-pub" lang="en" data-id="Tz1Ea67"><a href="//imgur.com/Tz1Ea67">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', user_2.id, "Black V6"],
+  [base_date + 1.day, 1, 'No image by user', user_2.id, "Black V5"],
+  [base_date + 3.day, 6, '<blockquote class="imgur-embed-pub" lang="en" data-id="5D6KV7C"><a href="//imgur.com/5D6KV7C">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', user_2.id, "Yellow V7"],
+  [base_date + 5.day, 8, '<blockquote class="imgur-embed-pub" lang="en" data-id="pKogmXZ"><a href="//imgur.com/pKogmXZ">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', user_2.id, "Pink V7"],
+  # Sent by User 3
+  [base_date + 3.day, 3, 'No image by user', user_3.id, "Blue V8"],
+  [base_date + 3.day, 5, 'No image by user', user_3.id, "Pink V8"],
+  [base_date + 5.day, 7, 'No image by user', user_3.id, "Blue V9"],
+]
+
