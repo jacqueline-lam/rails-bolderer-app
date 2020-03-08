@@ -72,7 +72,6 @@ URL:
 * get '/users/new', to: 'users#new'
 * get '/users/show', to: 'users#show' #=> would show number of sends and points, link_to "see all their problems", /users/:id/problems
 
-
 ## Problems
 ### controller
 * index (by everyone)
@@ -84,6 +83,10 @@ URL:
 * post 'problems/:id', to: 'problems#show' #=> display user_sends logs of this problem
 * get 'problems/new', to: 'problems#new' 
 * post 'problems', to: 'problems#create' 
+### helpers
+* instance method to sort_by_date
+* view method to format_timestamp_to_set_date ('Month, Year') 
+
 
 
 ## Sends

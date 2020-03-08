@@ -4,4 +4,8 @@ module ProblemsHelper
   def format_timestamp_to_set_date(problem)
     problem.created_at.strftime("%B, %Y")
   end
+
+  def display_styles(problem)
+    problem.styles.map(&:name).join(', ')
+  end
 end
