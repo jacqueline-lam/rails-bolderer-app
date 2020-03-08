@@ -4,21 +4,22 @@
 
 <%= form_for @problem do |f| %>
   <%= f.label :wall %>
-  <%= f.select :wall_id, options_from_collection_for_select(Wall.all, :id, :name) %>
-  <br>
+  <%= f.select :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %>
+  <br><br>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <br>
+  <br><br>
   <%= f.label :color %>
-  <%#= <%= f.select :color, options_from_collection_for_select(Problem::COLORS, :color, :color) %>
-  <br>
+  <!-- f.select :color, options_for_select(Problem::COLORS, :color, :color) -->
+  <%= f.select :color, options_for_select(Problem::COLORS), prompt: 'Select Color'  %>
+  <br><br>
   <%= f.label :grade %>
-  <%#= <%= f.select :grade, options_from_collection_for_select(Problem::GRADE, :grade, :grade) %>
-  <br>
+  <%= f.select :grade, options_for_select(Problem::GRADES), prompt: 'Select Grade'  %>
+  <br><br>
   <%= f.label :styles %>
   <%= f.collection_check_boxes :style_ids, Style.all, :id, :name %>
   <!-- <input type="checkbox" value="1" name="problem[style_ids][]" id="style_id"> -->
-  <br>
+  <br><br>
   <%= f.label :image %>
   <%= f.text_field :image %><br>
   <i>*Instructions: Drop your image onto <a href="https://imgur.com">Imgur</a>. Click 'get share links' and copy the "Embed in HTML" link.</i>
