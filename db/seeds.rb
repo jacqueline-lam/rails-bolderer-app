@@ -9,11 +9,12 @@ puts "Running DB seed..."
 
 # Don't let seed duplicate data more than once
 puts "Dropping DB..."
-Style.destroy_all
-ProblemStyle.destroy_all
 Problem.destroy_all
 Send.destroy_all
 User.destroy_all
+Style.destroy_all
+ProblemStyle.destroy_all
+
 
 # Create Wall instances - predetermined names
 walls = [
