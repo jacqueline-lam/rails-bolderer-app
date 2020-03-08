@@ -1,0 +1,18 @@
+<h2>Create a New Problem</h2>
+
+<%= form_for @problem do |f| %>
+  <%= f.label :wall %>
+  <%= <%= f.select :wall_id, options_from_collection_for_select(Wall.all, :id, :name) %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :color %>
+  <%#= <%= f.select :color, options_from_collection_for_select(Problem::COLORS, :color, :color) %>
+  <%= f.label :grade %>
+  <%#= <%= f.select :grade, options_from_collection_for_select(Problem::GRADE, :grade, :grade) %>
+  <%= f.label :styles %>
+  <%= f.collection_check_boxes :style_ids, Style.all, :id, :name %>
+  <!-- <input type="checkbox" value="1" name="problem[style_ids][]" id="style_id"> -->
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  <%= f.submit %> 
+<% end %>
