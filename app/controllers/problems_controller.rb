@@ -1,6 +1,6 @@
 class ProblemsController < ApplicationController
   def index
-    @problems = Problem.problems_by_date
+    @problems = Problem.sort_by_date
   end
   
   def new

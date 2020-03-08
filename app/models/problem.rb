@@ -40,8 +40,8 @@ class Problem < ApplicationRecord
   ]
 
   # Query Problem table for all problem instances
-  def self.problems_by_date
-    Problem.all.order('date desc')
+  def self.sort_by_date
+    Problem.all.order('created_at desc')
   end
 
 end

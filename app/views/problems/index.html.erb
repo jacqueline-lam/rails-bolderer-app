@@ -1,4 +1,49 @@
 <!-- Display all problems -->
 <h3>All Problem Logs</h3>
+<h4>Filter by:</h4>
+<p>Grades: toggle bar to choose range of grades</p>
+<p>Set dates: toggle bar to choose range of set_dates</p>
+<h4>Sort by:</h4>
+<ul>
+  <li>Most Recent (currently selected)</li>
+  <li>Highest Rating</li>
+  <li>Wall</li>
+  <li>Easiest</li>
+  <li>Hardest</li>
+</ul><br><br>
 
-list of problems
+<table>
+  <thead>
+    <th>Set</th>
+    <th>Wall</th>
+    <th>Name</th>
+    <th>Color</th>
+    <th>Grade</th>
+    <th>Sends</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @problems.each do |problem| %>
+      <tr>
+        <td><%= format_timestamp_to_set_date(problem) %></td>
+        <td><%= problem.wall.name %></td>
+        <td><h5><%= problem.name %></h5></td>
+        <td><%= problem.color %></td>
+        <td><%= problem.grade %></td>
+        <td><%= problem.users.count %></td>
+
+        <td><%= link_to 'See details', problem_path(problem) %></td>
+        <!-- <#% if problem.user == current_user %> -->
+          <td>Edit problem</td>
+          <td> Delete problem</td>
+        <!-- <%# else %> -->
+        <!-- <td></td> -->
+        <!-- <td></td> -->
+      <!-- <%# end %> -->
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
