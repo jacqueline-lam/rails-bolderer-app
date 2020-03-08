@@ -143,3 +143,21 @@ send_data = [
   [base_date + 5.day, 7, 'No image by user', user_3.id, "Blue V9"],
 ]
 
+# Create dummy Sends
+puts "Creating dummy Sends..."
+
+send_data.each do |data|
+  s = Send.create(
+    date_sent: data[0],
+    attempts: data[1],
+    image: data[2],
+    user_id: data[3]
+  )
+
+  problem_name = data[4]
+  puts "Adding #{problem_name} to send #{s.id}"
+  s.problem_id = Problem.find_by(name: problem_name).id
+  s.save!
+end
+
+puts "All dummy data have been seeded."
