@@ -69,3 +69,24 @@ user_1.save!
 user_2.save!
 user_3.save!
 
+
+problem_data = [
+  # Sent by User 1
+  ["Red V5", "red", "V5", 5, '<blockquote class="imgur-embed-pub" lang="en" data-id="f6jea5L"><a href="//imgur.com/f6jea5L">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["compression", "slab"], "Pineapple"],
+  ["Black V3", "black", "V3", 3, '<blockquote class="imgur-embed-pub" lang="en" data-id="yE9bcDH"><a href="//imgur.com/yE9bcDH">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["crimps", "slab"], "Pineapple"],
+  ["White V4", "white", "V4", 4, '<blockquote class="imgur-embed-pub" lang="en" data-id="qhovyFu"><a href="//imgur.com/qhovyFu">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["jugs", "powerful", "flexible"], "Pineapple"],
+  ["Yellow V4", "yellow", "V4", 4, '<blockquote class="imgur-embed-pub" lang="en" data-id="whnG7Sd"><a href="//imgur.com/whnG7Sd">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["crimps", "flexible", "balance", "slab"], "Logo"],
+  ["Black V4", "black", "V4", 4, '<blockquote class="imgur-embed-pub" lang="en" data-id="WlIv118"><a href="//imgur.com/WlIv118">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["body tension", "flexible", "mantle"], "Positivity"],
+  # Sent by User 2
+  ["Blue V6", "blue", "V6", 6, 'No original image available', ["crimps", "body tension", "flexible"], "Pineapple"],
+  ["Black V6", "black", "V6", 6, 'No original image available', ["pinches", "body tension", "powerful", "overhang"], "Barrel"],
+  ["Black V5", "black", "V5", 5, '<blockquote class="imgur-embed-pub" lang="en" data-id="jod5gFX"><a href="//imgur.com/jod5gFX">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["body tension", "compression", "powerful"], "Pineapple"],
+  ["Yellow V7", "yellow", "V7", 7, 'No original image available', ["crimps", "pinches", "powerful", "overhang"], "Pipe"],
+  ["Pink V7", "pink", "V7", 7, 'No original image available', ["crimps", "body tension", "powerful"], "Pineapple"],
+  # Sent by User 3
+  ["Blue V8", "blue", "V8", 8, '<blockquote class="imgur-embed-pub" lang="en" data-id="mbyzIOA"><a href="//imgur.com/mbyzIOA">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["crimps", "body tension", "powerful"], "Pipe"],
+  ["Pink V8", "pink", "V8", 8, '<blockquote class="imgur-embed-pub" lang="en" data-id="Rc01Obn"><a href="//imgur.com/Rc01Obn">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["crimps", "slopers", "pinches", "body tension"], "Pipe"],
+  ["Blue V9", "blue", "V9", 9, '<blockquote class="imgur-embed-pub" lang="en" data-id="mBoDq6d"><a href="//imgur.com/mBoDq6d">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', ["crimps", "body tension", "powerful"], "Positivity"]
+]
+
+base_date = '3/1/2020'.to_date
