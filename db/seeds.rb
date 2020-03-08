@@ -90,3 +90,37 @@ problem_data = [
 ]
 
 base_date = '3/1/2020'.to_date
+
+# Create dummy Problems
+puts "Creating dummy Problems..."
+problem_data.each do |data|
+  p = Problem.create(
+    name: data[0],
+    color: data[1],
+    grade: data[2],
+    points: data[3],
+    image: data[4],
+  )
+
+  wall_name = data[6]
+  puts "Adding wall_id to problem #{p.id}."
+  p.wall_id = Wall.find_by(name: wall_name).id
+  p.save!
+
+  # manually change created_at date:
+  puts "Updating created_at timestamp to #{base_date}."
+  p.update(created_at: base_date)
+
+  style_names = data[5]
+  puts "Adding #{style_names} styles to problem #{p.id}."
+  # retutn array of style instances for each problem
+  styles_with_these_names = style_names.map { |name| Style.find_by(name: name) }
+  # Create ProblemStyle to make the many-to-many relation
+  styles_with_these_names.each do |style|
+    ps = ProblemStyle.new
+    ps.problem_id = p.id
+    ps.style_id = style.id
+    ps.save!
+  end
+end
+
