@@ -4,6 +4,7 @@ class Problem < ApplicationRecord
   has_many :users, through: :sends
   has_many :problem_styles
   has_many :styles, through: :problem_styles
+  validates_presence_of :name, :color, :grade
 
   # Constants for colors + grades as a single source of truth
   # If we ever need to change colors, we can do so here
@@ -37,7 +38,7 @@ class Problem < ApplicationRecord
     "V12",
     "V13"
   ]
-  
+
   # Query Problem table for all problem instances
   def self.problems_by_date
     Problem.all.order('date desc')

@@ -1,5 +1,7 @@
 <h2>Create a New Problem</h2>
 
+<%= render partials: '/errors', locals:{ record : @problem } %>
+
 <%= form_for @problem do |f| %>
   <%= f.label :wall %>
   <%= <%= f.select :wall_id, options_from_collection_for_select(Wall.all, :id, :name) %>
@@ -14,5 +16,8 @@
   <!-- <input type="checkbox" value="1" name="problem[style_ids][]" id="style_id"> -->
   <%= f.label :image %>
   <%= f.text_field :image %>
+  <i>*Instructions: Drop your image onto <a href="https://imgur.com">Imgur</a>. Click 'get share links' and copy the "Embed in HTML" link.</i>
+  <br><br>
+
   <%= f.submit %> 
 <% end %>
