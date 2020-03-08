@@ -57,3 +57,15 @@ puts "Creating base Styles..."
 styles.each do |style|
   Style.create(name: style)
 end
+
+
+# seed DB with dummy data
+# users and their respective problems
+puts "Creating sample Users..."
+user_1 = User.new({username: "jackie", password: "12345"})
+user_2 = User.new({username: "sam", password: "54321"})
+user_3 = User.new({username: "natalie", password: "67890"})
+user_1.save!
+user_2.save!
+user_3.save!
+
