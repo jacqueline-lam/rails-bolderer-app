@@ -22,6 +22,6 @@ class ProblemsController < ApplicationController
   private
 
   def problem_params
-    params.require(:problem).permit(:wall_id, :name, :color, :grade, :image, :style_ids:[])
+    # params.require(:problem).permit(:wall_id, :name, :color, :grade, :image, :style_ids:[])
   end
 end
