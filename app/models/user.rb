@@ -4,5 +4,5 @@ class User < ApplicationRecord
   has_secure_password
   has_many :sends
   has_many :problems, through: :sends
-  has_many :rewards
+  
 end
