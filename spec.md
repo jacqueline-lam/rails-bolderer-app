@@ -85,7 +85,7 @@ URL:
 * post 'problems', to: 'problems#create' 
 ### helpers
 * instance method to sort_by_date
-* view method to format_timestamp_to_set_date ('Month, Year') 
+* view method: format_timestamp_to_set_date ('Month, Year') 
 
 
 
@@ -106,6 +106,9 @@ URL:
 * get '/users/:id/sends/:id/edit', to: 'sends#edit' 
 * patch '/users/:id/sends/:id', to: 'sends#update' 
 * delete '/users/:id/sends/:id', to: 'sends#destroy' 
+### helpers
+* instance method
+* view method: display_flash_attempt (if attempt == 1, display 'flash ⚡' in view) 
 
 ## Styles
 ### controller

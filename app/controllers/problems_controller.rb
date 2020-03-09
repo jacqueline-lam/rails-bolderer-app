@@ -17,6 +17,7 @@ class ProblemsController < ApplicationController
   end
 
   def show
+    @problem = Problem.find_by_id(params[:id])
   end
 
   private
