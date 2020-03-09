@@ -44,4 +44,7 @@ class Problem < ApplicationRecord
     Problem.all.order('created_at desc')
   end
 
+  def convert_grade_to_number
+    self.grade.delete("V").to_i
+  end
 end

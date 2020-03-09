@@ -5,4 +5,8 @@ class User < ApplicationRecord
   has_many :sends
   has_many :problems, through: :sends
   
+  def hardest_send
+    # self.problems.order('grade desc').limit(1).grade
+    self.problems.maximum('grade')
+  end
 end
