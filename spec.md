@@ -61,7 +61,6 @@ URL:
 
 ## Users
 ### controller
-* index (all users)
 * new
 * create
 * show -> show problems, rewards
