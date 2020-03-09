@@ -1,4 +1,4 @@
-<h1>@user.username</h1>
+<h1><%= @user.username %></h1>
 <h3>Problems Sent: <%= @user.sends.count %><h3>
 <h3>Hardest Send: <%=@user.hardest_send %></h3>
 <%= link_to 'See All Sends', user_send_path(@user)%>
