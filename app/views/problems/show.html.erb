@@ -15,7 +15,7 @@
 <h3>ACTIVITY</h3>
 <!-- order by least attempts? or latest?-->
 <% @problem.sends.each do |send| %>
-  <h3><%= send.user.username %></h3>  
+  <h3>@<%= link_to send.user.username, user_path(send.user) %></h3>  
   <!-- float right if possible -->
   <p><%= display_attempts(send) %></p>
   <p>Sent on: <%= send.date_sent %></p>

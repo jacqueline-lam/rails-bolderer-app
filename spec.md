@@ -71,6 +71,9 @@ URL:
 * get '/users', to: 'users#index' 
 * get '/users/new', to: 'users#new'
 * get '/users/show', to: 'users#show' #=> would show number of sends and points, link_to "see all their problems", /users/:id/problems
+### validations
+* username
+* password 
 
 ## Problems
 ### controller
@@ -86,6 +89,11 @@ URL:
 ### helpers
 * instance method to sort_by_date
 * view method: format_timestamp_to_set_date ('Month, Year') 
+### validations
+* name
+* color
+* grade
+* style 
 
 
 
@@ -109,6 +117,8 @@ URL:
 ### helpers
 * instance method
 * view method: display_flash_attempt (if attempt == 1, display 'flash ⚡' in view) 
+### validations
+
 
 ## Styles
 ### controller
@@ -123,6 +133,8 @@ n/a
 * create
 ### routes
 n/a (part of problems?)
+### validations
+* problem_id, uniqueness: { scope: :style_id, message: "Problems can only be given a style once" }
 
 ## Rewards
 ### Controller
@@ -140,6 +152,8 @@ n/a (part of problems?)
 * index
 * new
 * show
+### validations
+
 
 ## Comments
 ### controller
