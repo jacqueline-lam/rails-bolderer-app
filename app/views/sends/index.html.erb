@@ -1,1 +1,24 @@
 <h1>All of <%= @user.username %>'s Sends</h1>
+<!-- Display sent problem through partial -->
+
+<%# = render partial: 'problems/problem', locals: { problem: @user.send.problem } %><br>
+
+<h3>Problems Sent: <%= @user.sends.count %><h3>
+<h3>Hardest Send: <%=@user.hardest_send %></h3>
+
+<h4>Filter by:</h4>
+<p>Grades: toggle bar to choose range of grades</p>
+<p>Set dates: toggle bar to choose range of set_dates</p>
+
+<h4>Sort sends by:</h4>
+<ul>
+  <li>Most Recent (currently selected)</li>
+  <li>Highest Rating</li>
+  <li>Wall</li>
+  <li>Easiest</li>
+  <li>Hardest</li>
+</ul>
+<!-- Display sends by sets (month-by-month) -->
+<% @user.sends.each do |send| %>
+  
+<% end %>
