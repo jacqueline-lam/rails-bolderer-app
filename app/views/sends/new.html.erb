@@ -1,1 +1,21 @@
-<h2>Add A New Send</h2>
+<h2>Hey <%= @user.username %>, log your send!</h2>
+
+
+<%= form_for(@send, url: user_sends_path) do |f| %>
+  <b>Which problem did you send?</b>
+  <%= f.select :problem_id, options_from_collection_for_select(Problem.all, :id, :name), prompt: 'Select Problem' %>
+  <br>
+  <%= f.label :attempts %>
+  <%= f.number_field :attempts %>
+  <br>
+  <!-- date sent must be after problem created_at date-->
+  <%= f.label :date_sent %>
+  <%= f.date_field :date_sent %>
+  <br>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  <br>
+  <!--user that I want to associate with this send-->
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= f.submit %>
+<% end %>

@@ -12,12 +12,13 @@ class SendsController < ApplicationController
   def show
     
   end
-
+ 
   def new
-    
+    @send = Send.new
   end
 
   def create
+    binding.pry
   end
 
   def edit
