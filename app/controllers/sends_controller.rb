@@ -1,6 +1,6 @@
 class SendsController < ApplicationController
   def index
-    @user = User.find_by(params[:user_id])
+    get_user
     # @sends = @user.sends
   end
   
@@ -21,5 +21,11 @@ class SendsController < ApplicationController
   end
 
   def delete
+  end
+
+  private 
+  def get_user
+    # returns @user or find user and set the instance variable 
+    @user ||= User.find_by(params[:user_id])
   end
 end
