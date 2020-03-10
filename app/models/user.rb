@@ -5,9 +5,16 @@ class User < ApplicationRecord
   has_many :sends
   has_many :problems, through: :sends
   
+  def self.best_climber
+    # User.find_by()
+  end
+
+  def best_climber
+    # user who climbed the most hardest graded problem 
+  end
+
   def hardest_send
-    # self.problems.order('grade desc').limit(1).grade
-    self.problems.maximum('grade')
+    self.problems.order('grade desc').limit(1).grade
   end
 
   def sort_user_sends_by_date

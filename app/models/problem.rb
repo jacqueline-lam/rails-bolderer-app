@@ -44,6 +44,10 @@ class Problem < ApplicationRecord
     Problem.all.order('created_at desc')
   end
 
+  def self.sort_by_grade
+    Problem.all.order('grade desc')
+  end
+
   def convert_grade_to_number
     self.grade.delete("V").to_i
   end

@@ -1,0 +1,34 @@
+<h1>All Users</h1>
+
+<!-- Extra features -->
+<!-- <div id="leaderboard"> -->
+  <h3>Leaderboard</h3>
+  <!-- <div id="leaderboard_redpoint"> -->
+    <h4>Redpoint Winners</h4>
+    <i>Who climbed the most problems this month?</i>
+    <table>
+      <thead>
+        <th><img src="images/winner.png" alt="winner" width="30" height="30"></th>
+        <th>Winners</th>
+        <th>Problems sent</th>
+      </thead>
+      <tbody>
+        <%# @users_and_problem_count[0..4].each_with_index do |arr, idx| %>
+          <tr>
+            <td>1</td>
+            <td>username</a></td>
+            <td>sends</td>
+          </tr>
+        <%# end %>
+      </tbody>
+    </table>
+  <!-- </div> -->
+
+  <!-- <div id="leaderboard_crusher"> -->
+    <h4>Crusher of The Month</h4>
+    <i>Who climbed the hardest grade this month?</i><br><br>
+    <h5>The winner is... <%= link_to @best_climber.username, user_path(@best_climber) %>!!</h5>
+  <!-- </div> -->
+<!-- </div><hr> -->
+
+<!-- Display all users -->
