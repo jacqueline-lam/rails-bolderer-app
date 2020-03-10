@@ -1,4 +1,4 @@
-<h1>All of <%= @user.username %>'s Sends</h1>
+<h1>All of @<%= @user.username %>'s Sends</h1>
 <!-- Display sent problem through partial -->
 
 <%# = render partial: 'problems/problem', locals: { problem: @user.send.problem } %><br>
@@ -19,9 +19,10 @@
   <li>Hardest</li>
 </ul>
 
-<% if owner_of_sends?(@user) %>
-  <%= link_to "Add New Send", new_send_path %>
-<% end %>
+<%# if sender?(@user) %>
+  <%= link_to "Add New Send", new_user_send_path %>
+<%# end %>
+<br>
 
 <!-- Display sends -->
 <table>
@@ -37,7 +38,7 @@
     <th></th> <!-- delete send -->
   </thead>
   <tbody>
-    <% @user.sends.each do |send| %>
+    <% @sends.each do |send| %>
       <tr>
         <td><%= send.date_sent %></td>
         <td><h5><%= send.problem.name %></h5></td>
@@ -46,10 +47,11 @@
         <td><%= send.problem.grade %></td>
         <td><%= send.attempts %> attempts</td>
 
-        <td><%= link_to 'See details', send_path(send) %></td>
+        <td><%= link_to 'See details', user_send_path(@user, send) %></td>
         <!-- <#% if problem.user == current_user %> -->
-          <td>Edit problem</td>
-          <td> Delete problem</td>
+          <td><%= link_to "Edit send", edit_user_send_path(@user, send) %></td>
+          <!-- <button_to(str), URL, method:"DELETE", class:"destory"></button>`-->
+          <td><%= button_to "x", user_send_path(@user, send), :method => "delete" %></td>
         <!-- <%# else %> -->
         <!-- <td></td> -->
         <!-- <td></td> -->

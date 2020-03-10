@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in, :current_user, :owner_of_sends
+  helper_method :logged_in, :current_user, :log_in, :sender?
 
   def current_user
     User.find_by(id: session[:user_id]) 
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
-  def owner_of_sends?(user)
+  def sender?(user)
     current_user.id == user.id
   end
 

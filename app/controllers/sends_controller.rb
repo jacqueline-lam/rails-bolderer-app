@@ -1,11 +1,13 @@
 class SendsController < ApplicationController
   def index
     get_user
+    @sends = get_user.sort_user_sends_by_date
     # @sends = @user.sends
   end
   
   def show
-    
+    get_user
+    @send = Send.find_by(params[:id])
   end
 
   def new

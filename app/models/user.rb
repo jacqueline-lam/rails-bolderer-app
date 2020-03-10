@@ -9,4 +9,8 @@ class User < ApplicationRecord
     # self.problems.order('grade desc').limit(1).grade
     self.problems.maximum('grade')
   end
+
+  def sort_user_sends_by_date
+    self.sends.order('date_sent desc')
+  end
 end

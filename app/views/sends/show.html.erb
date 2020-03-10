@@ -1,0 +1,8 @@
+<h1><%= @send.user.username %>'s Send</h1>
+
+<h2><%=@send.problem.name%> at <%=@send.problem.wall.name%> Wall</h2>
+<p><%= display_attempts(@send) %></p>
+<p>Sent on: <%= @send.date_sent %></p>
+<p><%= @send.image if @send.image %></p>
+
+<%= link_to "Check out this problem", problem_path(@send.problem) %>
