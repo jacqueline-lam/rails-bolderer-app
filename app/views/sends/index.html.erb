@@ -23,7 +23,38 @@
   <%= link_to "Add New Send", new_send_path %>
 <% end %>
 
-<!-- Display sends by sets (month-by-month) -->
-<% @user.sends.each do |send| %>
+<!-- Display sends -->
+<table>
+  <thead>
+    <th>Date Sent</th>
+    <th>Name</th>
+    <th>Wall</th>
+    <th>Color</th>
+    <th>Grade</th>
+    <th>Attempts</th>
+    <th></th> <!-- link to send -->
+    <th></th> <!-- edit send -->
+    <th></th> <!-- delete send -->
+  </thead>
+  <tbody>
+    <% @user.sends.each do |send| %>
+      <tr>
+        <td><%= send.date_sent %></td>
+        <td><h5><%= send.problem.name %></h5></td>
+        <td><%= send.problem.wall.name %></td>
+        <td><%= send.problem.color %></td>
+        <td><%= send.problem.grade %></td>
+        <td><%= send.attempts %> attempts</td>
 
-<% end %>
+        <td><%= link_to 'See details', send_path(send) %></td>
+        <!-- <#% if problem.user == current_user %> -->
+          <td>Edit problem</td>
+          <td> Delete problem</td>
+        <!-- <%# else %> -->
+        <!-- <td></td> -->
+        <!-- <td></td> -->
+      <!-- <%# end %> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>

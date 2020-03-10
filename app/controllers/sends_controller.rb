@@ -9,6 +9,7 @@ class SendsController < ApplicationController
   end
 
   def new
+    get_user
   end
 
   def create
