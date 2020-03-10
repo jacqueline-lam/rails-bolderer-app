@@ -1,17 +1,19 @@
 class SendsController < ApplicationController
+  # call to the ActionController class method before_action
+  # register a filter 
+  before_action :get_user, only:[:index, :show, :new]
+
   def index
-    get_user
     @sends = get_user.sort_user_sends_by_date
     # @sends = @user.sends
   end
   
   def show
-    get_user
     @send = Send.find_by(params[:id])
   end
 
   def new
-    get_user
+    
   end
 
   def create
