@@ -18,7 +18,12 @@
   <li>Easiest</li>
   <li>Hardest</li>
 </ul>
+
+<% if owner_of_sends?(@user) %>
+  <%= link_to "Add New Send", new_send_path %>
+<% end %>
+
 <!-- Display sends by sets (month-by-month) -->
 <% @user.sends.each do |send| %>
-  
+
 <% end %>
