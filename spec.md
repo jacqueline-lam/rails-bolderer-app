@@ -44,8 +44,11 @@ URL:
 # Feature requests
 * Scope method: filter Problem by problem.grade, style.name, problem.date (problems_sent_this_month)
   * format problem creation date by "Month, year"
-* Model method: return points of a User based on sum of all the problems' points they earned this month?
-  * Problems: sort_by_date
+* Model method: 
+  * Problems: sort_by_date, sort_by_grade, convert_grade_to_number
+  * Users: hardest_send, sort_user_sends_by_date, (maybe: self.best_climber, best_climber)
+  * (Maybe) return points of a User based on sum of all the problems' points they earned this month?
+  
 * View helper method: convert style array into a string
   * format_timestamp_to_set_date
 * Helper method: 

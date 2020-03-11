@@ -9,7 +9,7 @@ class Send < ApplicationRecord
   # validate :new_problem_sent?, on: create
 
   def valid_date?
-    if date_sent.present? && (date_sent < self.problem.created_at)
+    if date_sent.present? && self.problem.present? && (date_sent < self.problem.created_at)
       errors.add(:date_sent, "must be after problem set date")
     end
   end
