@@ -5,6 +5,10 @@ class Problem < ApplicationRecord
   has_many :problem_styles
   has_many :styles, through: :problem_styles
   validates_presence_of :name, :color, :grade
+  # Query Problem table for all problem instances
+  scope :sort_by_date, -> { order('created_at desc') }
+  scope :sort_by_grade, -> { order('grade desc') } 
+  scope :filter_by_grades -> (min_grade, max_grade) { where(grade: (min_grade..max_grade)) }
 
   # Constants for colors + grades as a single source of truth
   # If we ever need to change colors, we can do so here
@@ -39,14 +43,6 @@ class Problem < ApplicationRecord
     "V13"
   ]
 
-  # Query Problem table for all problem instances
-  def self.sort_by_date
-    Problem.all.order('created_at desc')
-  end
-
-  def self.sort_by_grade
-    Problem.all.order('grade desc')
-  end
 
   def convert_grade_to_number
     self.grade.delete("V").to_i
