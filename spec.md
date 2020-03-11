@@ -1,47 +1,34 @@
-# Requirements
+# Specifications for the Rails Assessment
 
-[ ] Use the Ruby on Rails framework.
+Specs:
+- [x] Using Ruby on Rails for the project
+- [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
+- [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
+- [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
+- [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+- [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+- [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [ ] Include signup (how e.g. Devise)
+- [ ] Include login (how e.g. Devise)
+- [ ] Include logout (how e.g. Devise)
+- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
-Your models must:
-
-[ ] • Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
-
-[ ] • Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
-
-[ ] Your models must include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
-
-[ ] You must include at least one class level ActiveRecord scope method. a. Your scope method must be chainable, meaning that you must use ActiveRecord Query methods within it (such as .where and .order) rather than native ruby methods (such as #find_all or #sort).
-
-p[ Your application must provide standard user authentication, including signup, login, logout, and passwords.
-
-[ ] Your authentication system must also allow login from some other service. Facebook, Twitter, Foursquare, Github, etc...
-
-[ ] You must include and make use of a nested resource with the appropriate RESTful URLs.
-
-[ ] • You must include a nested new route with form that relates to the parent resource
-
-[ ] • You must include a nested index or show route
-
-[ ] Your forms should correctly display validation errors.
-
-[ ] a. Your fields should be enclosed within a fields_with_errors class
-
-[ ] b. Error messages describing the validation failures must be present within the view.
-
-[ ] Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app.
-rails 
-[ ] • Logic present in your controllers should be encapsulated as methods in your models.
-
-[ ] • Your views should use helper methods and partials when appropriate.
-
-[ ] • Follow patterns in the Rails Style Guide and the Ruby Style Guide.
-
-[x] Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+Confirm:
+- [ ] The application is pretty DRY
+- [ ] Limited logic in controllers
+- [ ] Views use helper methods if appropriate
+- [ ] Views use partials if appropriate
 
 # Blog post
 URL: 
 
-# Feature requests
+# Additional Notes:
+
+## Feature requests
 * Scope method: filter Problem by problem.grade, style.name, problem.date (problems_sent_this_month)
   * format problem creation date by "Month, year"
 * Model method: 
@@ -59,8 +46,6 @@ URL:
   * user/:id/problems/new ('problems#new')
   * users/:id/problems/:id/comments/new ('comments#new')
 
-
-# To do:
 
 ## Users
 ### controller
