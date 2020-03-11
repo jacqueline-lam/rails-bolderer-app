@@ -20,10 +20,6 @@ class ProblemsController < ApplicationController
     @problem = Problem.find_by_id(params[:id])
   end
 
-  def rating
-    @problems = Problem.sort_by_rating
-  end
-
   def easiest
     @problems = Problem.sort_by_grade.reverse
   end
