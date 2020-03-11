@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   # resources :styles, only: :create
   # resources :problem_styles, only: :create
   resources :rewards, only: [:index, :show, :new, :create]
-
-  get '/problems/sort/ratings', to: 'problems#ratings'
+  
   get '/problems/sort/easiest', to: 'problems#easiest'
   get '/problems/sort/hardest', to: 'problems#hardest'
   get '/problems/filter/grades', to: 'problems#grades'
