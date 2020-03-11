@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def hardest_send
-    self.problems.order('grade desc').limit(1).grade
+    self.problems.order('grade desc').limit(1).first.grade
   end
 
   def sort_user_sends_by_date

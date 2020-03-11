@@ -1,7 +1,7 @@
 <h1>All of @<%= @user.username %>'s Sends</h1>
 <!-- Display sent problem through partial -->
 
-<%# = render partial: 'problems/problem', locals: { problem: @user.send.problem } %><br>
+<!--render partial: 'problems/problem', locals: { problem: @user.send.problem } --><br>
 
 <h3>Problems Sent: <%= @user.sends.count %><h3>
 <h3>Hardest Send: <%=@user.hardest_send %></h3>
@@ -41,7 +41,7 @@
     <% @sends.each do |send| %>
       <tr>
         <td><%= send.date_sent %></td>
-        <td><h5><%= send.problem.name %></h5></td>
+        <td><h5><%= link_to send.problem.name, problem_path(send.problem) %></h5></td>
         <td><%= send.problem.wall.name %></td>
         <td><%= send.problem.color %></td>
         <td><%= send.problem.grade %></td>
