@@ -20,6 +20,30 @@ class ProblemsController < ApplicationController
     @problem = Problem.find_by_id(params[:id])
   end
 
+  def rating
+    @problems = Problem.sort_by_rating
+  end
+
+  def easiest
+    @problems = Problem.sort_by_grade.reverse
+  end
+
+  def hardest
+    @problems = Problem.sort_by_grade
+  end
+
+  def grades
+    @problems = Problem.filter_by_grades(min, max)
+  end
+
+  def styles
+    @problems = Problem.filter_by_style(selected_style)
+  end
+
+  def walls
+    @problems = Problem.filter_by_wall(selected_wall)
+  end
+ 
   private
 
   def problem_params
