@@ -69,14 +69,14 @@ URL:
 ### routes
 * get '/users', to: 'users#index' 
 * get '/users/show', to: 'users#show' #=> would show number of sends and points, link_to "see all their problems", /users/:id/problems
-* get '/signup', to: 'users#new'
-* post'/signup', to: 'users#create'
+* get '/users/new', to: 'users#new'
+* post'/users', to: 'users#create'
 * get '/login', to 'sessions#new'
 * post '/login', to 'sessions#create'
 * get '/logout', to 'sessions#destroy'
 ### validations
-* username
-* password
+* username (presence + uniqueness)
+* password (presence)
 
 
 
