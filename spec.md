@@ -47,20 +47,39 @@ URL:
   * users/:id/problems/:id/comments/new ('comments#new')
 
 
-## Users
-### controller
+## Users (Authentication)
+### Sessionscontroller
+* to handle login and logout
+### actions
 * new
 * create
+### UsersController 
+* to handle signup (creating a user account)
+### actions
+* new
+* create
+* index -> leaderboard
 * show -> show problems, rewards
 ** if you are owner of problem, you can see <%= link_to 'Edit problem', 'problems#edit' %>
 ** if you are other users, you can see <%= link_to 'Write a comment', 'comments#new' %>
+### views
+* signup form
+* login form
+
 ### routes
 * get '/users', to: 'users#index' 
-* get '/users/new', to: 'users#new'
 * get '/users/show', to: 'users#show' #=> would show number of sends and points, link_to "see all their problems", /users/:id/problems
+* get '/signup', to: 'users#new'
+* post'/signup', to: 'users#create'
+* get '/login', to 'sessions#new'
+* post '/login', to 'sessions#create'
+* get '/logout', to 'sessions#destroy'
 ### validations
 * username
-* password 
+* password
+
+
+
 
 ## Problems
 ### controller
@@ -155,6 +174,5 @@ n/a (part of problems?)
 * get '/users/:id/problems/:id/comments/:id/edit', to: 'comments#edit' 
 * patch '/users/:id/problems/:id/comments/:id', to: 'comments#update' 
 * delete '/users/:id/problems/:id/comments/:id', to: 'comments#destroy' 
-
 
 
