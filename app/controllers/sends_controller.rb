@@ -18,14 +18,16 @@ class SendsController < ApplicationController
  
   def new
     if @user.nil?
-      redirect_to users_path 
+      redirect_to users_path
     else
       @send = Send.new
     end
   end
 
   def create
-    @send = Send.new(send_params)
+    # user that I want to associate with this send
+    # shielding data by assigning send's user_id here instead of via hidden_field in view form
+    @send = current_user.sends.build(send_params)
     if @send.save #if able to run validations
       redirect_to user_sends_path(@send.user)
     else
