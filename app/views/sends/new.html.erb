@@ -1,21 +1,3 @@
-<h2>Hey <%= @user.username %>, log your send!</h2>
+<h1>Hey <%= @user.username %>, log your send!</h1>
 
-<%= render partial: '/errors', locals: { record: @send } %><br>
-
-<%= form_for(@send, url: user_sends_path) do |f| %>
-  <b>Which new problem did you send?</b>
-  <div><%= f.select :problem_id, options_from_collection_for_select(Problem.all, :id, :name), prompt: 'Select Problem' %></div>
-  <br>
-  <%= f.label :attempts %>
-  <div><%= f.number_field :attempts, min: 1, value: 1 %></div>
-  <br>
-  <!-- date sent must be after problem created_at date-->
-  <%= f.label :date_sent %>
-  <div><%= f.date_field :date_sent, max: Date.today %></div>
-  <br>
-  <%= f.label :image %>
-  <div><%= f.text_field :image %></div>
-  <br>
-
-  <%= f.submit %>
-<% end %>
+ <%= render 'form' %>
