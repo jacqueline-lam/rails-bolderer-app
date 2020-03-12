@@ -4,17 +4,17 @@
 
 <%= form_for(@send, url: user_sends_path) do |f| %>
   <b>Which new problem did you send?</b>
-  <%= f.select :problem_id, options_from_collection_for_select(Problem.all, :id, :name), prompt: 'Select Problem' %>
+  <div><%= f.select :problem_id, options_from_collection_for_select(Problem.all, :id, :name), prompt: 'Select Problem' %></div>
   <br>
   <%= f.label :attempts %>
-  <%= f.number_field :attempts, min: 1, value: 1 %>
+  <div><%= f.number_field :attempts, min: 1, value: 1 %></div>
   <br>
   <!-- date sent must be after problem created_at date-->
   <%= f.label :date_sent %>
-  <%= f.date_field :date_sent %>
+  <div><%= f.date_field :date_sent %></div>
   <br>
   <%= f.label :image %>
-  <%= f.text_field :image %>
+  <div><%= f.text_field :image %></div>
   <br>
   <!--user that I want to associate with this send-->
   <%= f.hidden_field :user_id, value: @user.id %>
