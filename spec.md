@@ -65,7 +65,6 @@ URL:
 ### views
 * signup form
 * login form
-
 ### routes
 * get '/users', to: 'users#index' 
 * get '/users/show', to: 'users#show' #=> would show number of sends and points, link_to "see all their problems", /users/:id/problems
@@ -82,11 +81,10 @@ URL:
 * users who haven't signed in are not permitted to access any views except for application/index 
 * users signed in can view problems, users, users/:user_id/sends and create/update/destroy their own sends 
 
-### authroization / checks
+### authroization / helper methods in controllers
 * `before_action :require_login` filters halt the request cycle - requires that a user is logged in for an action to be run
-
-
-
+*   `before_action :validate_user, only: [:show]`
+* `before_action :require_logout, only: [:new, :create]`
 
 
 ## Problems
@@ -110,6 +108,7 @@ URL:
 * style 
 ### authorization
 * cannot access non-existant problem with '/problems/:id' -> redirect_to problems_path
+* Must be logged in to see any problems: `before_action :require_login`
 
 
 
@@ -133,11 +132,20 @@ URL:
 ### helpers
 * instance method
 * view method: display_flash_attempt (if attempt == 1, display 'flash ⚡' in view) 
+*  `before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest]`
+*  `before_action :get_send, only:[:show, :update, :destroy]`
 ### validations
+*  `validates_presence_of :user_id, :date_sent`
+* `validates :problem_id, presence: { message: "must be selected" }, uniqueness: { scope: :user_id, message: "can only be sent once" }`
+* `validates :attempts, presence: true, numericality: { greater_than: 0 }`
+* `validate :valid_date?`
 ### authorization
 * cannot visit uninitiated user's sends via 'users/:user_id/sends'
 * cannot visit user's uninitializd send show page via 'users/:user_id/sends/:id'
-
+* `before_action :require_login`
+* `before_action :validate_user`
+* `before_action :validate_sender, only: [:new, :create, :update, :destroy]`
+* `before_action :validate_send_id, only: [:show, :update, :destroy]`
 
 ## Styles
 ### controller
@@ -153,7 +161,10 @@ n/a
 ### routes
 n/a (part of problems?)
 ### validations
-* problem_id, uniqueness: { scope: :style_id, message: "Problems can only be given a style once" }
+* `problem_id, uniqueness: { scope: :style_id, message: "Problems can only be given a style once" }`
+
+---
+# Additional models if time permits:
 
 ## Rewards
 ### Controller
@@ -172,7 +183,6 @@ n/a (part of problems?)
 * new
 * show
 ### validations
-
 
 ## Comments
 ### controller

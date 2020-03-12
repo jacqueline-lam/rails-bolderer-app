@@ -11,7 +11,7 @@
   <br>
   <!-- date sent must be after problem created_at date-->
   <%= f.label :date_sent %>
-  <div><%= f.date_field :date_sent %></div>
+  <div><%= f.date_field :date_sent, max: Date.today %></div>
   <br>
   <%= f.label :image %>
   <div><%= f.text_field :image %></div>
