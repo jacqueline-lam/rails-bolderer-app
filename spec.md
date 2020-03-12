@@ -3,11 +3,30 @@
 Specs:
 - [x] Using Ruby on Rails for the project
 - [x] Include at least one has_many relationship (x has_many y; e.g. User has_many Recipes) 
+  - User has many Sends
+  - Problem has many Sends
+  - Problem has many ProblemStyles
+  - Style has many ProblemStyles
+  - Wall has many problems
 - [x] Include at least one belongs_to relationship (x belongs_to y; e.g. Post belongs_to User)
+  - ProblemStyle belongs to Problem
+  - ProblemStyle belongs to Style
+  - Problem belongs to Wall
+  - Send belongs to User
+  - Send belongs to Problem
 - [x] Include at least two has_many through relationships (x has_many y through z; e.g. Recipe has_many Items through Ingredients)
+    - User has many Problems through Sends
+    - Problem has many Users through Sends
+    - Problem has many Styles through ProblemStyles
+    - Style has many Problems through ProblemStyles
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+  - User and Problems through Sends
+  - Problem and Style through ProblemStyles
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
+  - Send - attributes including attempts, date_sent, and image
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+  - Model objects: User (name and password must exit and match db), ProblemStyle must have unique problem_id, Problem (name, color, grade), Send (user_id, date_sent, unique problem_id, attempts > 0, date_sent to be set after problem created_at date)
+  - Authroization helper methods built in controllers to avoid URL hacking
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
 - [ ] Include signup (how e.g. Devise)
 - [ ] Include login (how e.g. Devise)
@@ -26,6 +45,7 @@ Confirm:
 # Blog post
 URL: 
 
+---
 # Additional Notes:
 
 ## Feature requests
