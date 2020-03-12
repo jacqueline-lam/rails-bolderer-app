@@ -5,7 +5,7 @@ class SendsController < ApplicationController
   before_action :get_send, only:[:show, :edit, :update, :destroy]
   before_action :require_login
   before_action :validate_user
-  before_action :validate_sender, only: [:new, :create, :update, :destroy]
+  before_action :validate_sender, only: [:new, :create,:edit, :update, :destroy]
   before_action :validate_send_id, only: [:show, :update, :destroy]
   # before_action :validate_sender, only: [:new, :create]
 
