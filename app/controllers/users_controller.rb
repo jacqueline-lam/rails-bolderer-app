@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:show, :index]
   before_action :validate_user, only: [:show]
-  
+  before_action :require_logout, only: [:new, :create]
+
   def index
   end
 
@@ -32,4 +33,5 @@ class UsersController < ApplicationController
   def validate_user
     redirect_to users_path unless User.find_by(id: params[:id])
   end
+
 end

@@ -20,4 +20,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
   end
 
+  def require_logout
+    redirect_to problems_path unless session.empty? 
+  end
 end
