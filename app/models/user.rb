@@ -1,9 +1,12 @@
 class User < ApplicationRecord
+  has_many :sends
+  has_many :problems, through: :sends
+
   # ActiveRecord macro works in conjunction with ruby gem bcrypt
   # to encrypt password, gives us ability to access attr `password`
   has_secure_password
-  has_many :sends
-  has_many :problems, through: :sends
+  validates_presence_of :username, :password, :password_confirmation
+  validates_uniqueness_of :username
   
   def self.best_climber
     # User.find_by()
