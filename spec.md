@@ -77,6 +77,7 @@ URL:
 ### validations
 * username (presence + uniqueness)
 * password (presence)
+* password must match password_confirmation
 
 
 
