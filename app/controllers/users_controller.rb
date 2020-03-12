@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show, :index]
+  before_action :validate_user, only: [:show]
+  
+  def index
+  end
+
   def new 
     @user = User.new
   end
@@ -21,5 +27,9 @@ class UsersController < ApplicationController
   # Avoid others from passing in unsavory attributes into our form
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
+  end
+  
+  def validate_user
+    redirect_to users_path unless User.find_by(id: params[:id])
   end
 end

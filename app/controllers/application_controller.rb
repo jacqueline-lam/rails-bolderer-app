@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
   # Helper methods
   def logged_in?
-    !!curent_user
+    !!current_user
   end
   
   def current_user
@@ -18,10 +18,6 @@ class ApplicationController < ActionController::Base
 
   def log_in(user)
     session[:user_id] = user.id
-  end
-
-  def sender?(user)
-    current_user.id == user.id
   end
 
 end

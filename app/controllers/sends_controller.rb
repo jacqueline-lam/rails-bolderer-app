@@ -3,21 +3,23 @@ class SendsController < ApplicationController
   # register a filter 
   before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest]
   before_action :get_send, only:[:show, :update, :destroy]
+  before_action :require_login
+  before_action :validate_user
+  before_action :validate_sender, only: [:new, :create]
+  # before_action :validate_sender, only: [:new, :create]
 
   def index
-    if @user.nil?
-      redirect_to users_path 
-    else
-      @sends = @user.sort_user_sends_by_date
-    end
+    @sends = @user.sort_user_sends_by_date
   end
   
   def show
-    
+    if !@send
+      redirect_to user_sends_path(@user)
+    end
   end
  
   def new
-    if @user.nil?
+    if !@user
       redirect_to users_path
     else
       @send = Send.new
@@ -66,6 +68,15 @@ class SendsController < ApplicationController
   def get_send
     # returns @user or find user and set the instance variable 
     @send ||= Send.find_by(id: params[:id])
+  end
+
+  def validate_user
+    redirect_to users_path unless !!get_user
+  end
+ 
+  def validate_sender
+    validate_user
+    redirect_to user_sends_path(get_user) unless current_user == get_user
   end
   
   def send_params

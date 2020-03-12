@@ -78,6 +78,13 @@ URL:
 * username (presence + uniqueness)
 * password (presence)
 * password must match password_confirmation
+### Acess policy
+* users who haven't signed in are not permitted to access any views except for application/index 
+* users signed in can view problems, users, users/:user_id/sends and create/update/destroy their own sends 
+
+### authroization / checks
+* `before_action :require_login` filters halt the request cycle - requires that a user is logged in for an action to be run
+
 
 
 
@@ -101,6 +108,8 @@ URL:
 * color
 * grade
 * style 
+### authorization
+* cannot access non-existant problem with '/problems/:id' -> redirect_to problems_path
 
 
 
@@ -125,6 +134,9 @@ URL:
 * instance method
 * view method: display_flash_attempt (if attempt == 1, display 'flash ⚡' in view) 
 ### validations
+### authorization
+* cannot visit uninitiated user's sends via 'users/:user_id/sends'
+* cannot visit user's uninitializd send show page via 'users/:user_id/sends/:id'
 
 
 ## Styles

@@ -1,4 +1,6 @@
 class ProblemsController < ApplicationController
+  before_action :require_login
+
   def index
     @problems = Problem.sort_by_date
   end
@@ -18,6 +20,7 @@ class ProblemsController < ApplicationController
 
   def show
     @problem = Problem.find_by_id(params[:id])
+    redirect_to problems_path if !@problem
   end
 
   def easiest
