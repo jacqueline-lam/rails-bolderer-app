@@ -3,26 +3,28 @@
 
 <!--render partial: 'problems/problem', locals: { problem: @user.send.problem } --><br>
 
+<%# if sender?(@user) %>
+  <%= link_to "Add New Send", new_user_send_path %><br>
+<%# end %>
+
 <h3>Problems Sent: <%= @user.sends.count %><h3>
 <h3>Hardest Send: <%=@user.hardest_send %></h3>
+<hr>
+<h4>Filter Sends By</h4>
+<p><b>Grades:</b> toggle bar to choose range of grades</p>
+<p><b>Set dates:</b> toggle bar to choose range of set_dates</p>
 
-<h4>Filter by:</h4>
-<p>Grades: toggle bar to choose range of grades</p>
-<p>Set dates: toggle bar to choose range of set_dates</p>
-
-<h4>Sort sends by:</h4>
+<h4>Sort Sends By</h4>
 <ul>
   <li><%= link_to "Most Recent (default)", user_sends_path(@user) %></li>
   <li>Wall</li>
-  <li>Easiest</li>
-  <li>Hardest</li>
-</ul>
+  <%= select_tag :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %>
 
-<%# if sender?(@user) %>
-  <%= link_to "Add New Send", new_user_send_path %>
-<%# end %>
-<br>
+  <li><%= link_to "Hardest to easiest", user_sends_sort_easiest_path(@user) %></li> 
+  <li><%= link_to "Easiest to hardest", user_sends_sort_hardest_path(@user) %></li> 
+</ul><br><hr>
 
+<h2> All Results </h2>
 <!-- Display sends -->
 <table>
   <thead>

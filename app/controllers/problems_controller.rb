@@ -22,22 +22,27 @@ class ProblemsController < ApplicationController
 
   def easiest
     @problems = Problem.sort_by_grade.reverse
+    render :index
   end
 
   def hardest
     @problems = Problem.sort_by_grade
+    render :index
   end
 
   def grades
     @problems = Problem.filter_by_grades(min, max)
+    render :index
   end
 
   def styles
     @problems = Problem.filter_by_style(selected_style)
+    render :index
   end
 
   def walls
     @problems = Problem.filter_by_wall(selected_wall)
+    render :index
   end
  
   private

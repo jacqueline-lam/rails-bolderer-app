@@ -1,7 +1,7 @@
 class SendsController < ApplicationController
   # call to the ActionController class method before_action
   # register a filter 
-  before_action :get_user, only:[:index, :show, :new, :create]
+  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest]
   before_action :get_send, only:[:show, :update, :destroy]
 
   def index
@@ -43,6 +43,16 @@ class SendsController < ApplicationController
     # if current_user == send.user
    @send.destroy
    redirect_to user_sends_path(@send.user)
+  end
+
+  def easiest
+    @sends = Send.sort_by_grade_desc(@user.id)
+    render :index
+  end
+
+  def hardest
+    @sends = Send.sort_by_grade_asc(@user.id)
+    render :index
   end
 
   private 

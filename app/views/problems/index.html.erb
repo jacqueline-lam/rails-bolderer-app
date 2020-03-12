@@ -1,19 +1,23 @@
 <!-- Display all problems -->
-<h3>All Problem Logs</h3>
+<h1>All Problem Logs</h1>
 <%= link_to "Add New Problem", new_problem_path %><br>
 
-<h4>Filter by:</h4>
-<p>Grades: toggle bar to choose range of grades</p>
-<p>Set dates: toggle bar to choose range of set_dates</p>
+<h4>Filter By</h4>
+<p><b>Grades:</b> toggle bar to choose range of grades</p>
+<p><b>Set dates:</b> toggle bar to choose range of set_dates</p>
 
-<h4>Sort by:</h4>
+<h4>Sort By</h4>
 <ul>
   <li><%= link_to "Most Recent (default)", problems_path %></li>
   <li>Wall</li>
-  <li>Easiest</li>
-  <li>Hardest</li>
-  <li>Styles</li>
-</ul><br><br>
+  <%= select_tag :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %>
+  <li><%= link_to "Easiest", problems_sort_easiest_path %></li>
+  <li><%= link_to "Hardest", problems_sort_hardest_path %></li>
+  <li>Style</li>  
+</ul>
+<br><hr>
+
+<h2>All Results</h2>
 
 <table>
   <thead>

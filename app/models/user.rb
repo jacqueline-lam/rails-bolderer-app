@@ -20,4 +20,5 @@ class User < ApplicationRecord
   def sort_user_sends_by_date
     self.sends.order('date_sent desc')
   end
+  
 end
