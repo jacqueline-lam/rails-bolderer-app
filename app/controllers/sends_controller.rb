@@ -2,7 +2,7 @@ class SendsController < ApplicationController
   # call to the ActionController class method before_action
   # register a filter 
   before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest]
-  before_action :get_send, only:[:show, :update, :destroy]
+  before_action :get_send, only:[:show, :edit, :update, :destroy]
   before_action :require_login
   before_action :validate_user
   before_action :validate_sender, only: [:new, :create, :update, :destroy]

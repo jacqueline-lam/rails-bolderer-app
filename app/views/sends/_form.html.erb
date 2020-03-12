@@ -1,8 +1,8 @@
 <%= render partial: '/errors', locals: { record: @send } %><br>
 
 <%= form_for(@send, url: user_sends_path) do |f| %>
-  <b>Which new problem did you send?</b>
-  <div><%= f.select :problem_id, options_from_collection_for_select(Problem.all, :id, :name), prompt: 'Select Problem' %></div>
+  <b>Which problem did you send?</b>
+  <div><%= f.select :problem_id, options_from_collection_for_select(Problem.all, :id, :name, selected: @send.problem_id || nil), prompt: 'Select Problem' %></div>
   <br>
   <%= f.label :attempts %>
   <div><%= f.number_field :attempts, min: 1, value: 1 %></div>
