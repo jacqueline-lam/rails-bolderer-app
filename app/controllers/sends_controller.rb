@@ -5,7 +5,8 @@ class SendsController < ApplicationController
   before_action :get_send, only:[:show, :update, :destroy]
   before_action :require_login
   before_action :validate_user
-  before_action :validate_sender, only: [:new, :create]
+  before_action :validate_sender, only: [:new, :create, :update, :destroy]
+  before_action :validate_send_id, only: [:show, :update, :destroy]
   # before_action :validate_sender, only: [:new, :create]
 
   def index
@@ -13,17 +14,10 @@ class SendsController < ApplicationController
   end
   
   def show
-    if !@send
-      redirect_to user_sends_path(@user)
-    end
   end
  
   def new
-    if !@user
-      redirect_to users_path
-    else
-      @send = Send.new
-    end
+    @send = Send.new
   end
 
   def create
@@ -78,7 +72,11 @@ class SendsController < ApplicationController
     validate_user
     redirect_to user_sends_path(get_user) unless current_user == get_user
   end
-  
+
+  def validate_send_id
+    redirect_to user_sends_path(get_user) unless !!get_send 
+  end
+
   def send_params
     params.require(:send).permit(:problem_id, :user_id, :attempts, :date_sent, :image)
   end
