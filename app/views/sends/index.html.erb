@@ -1,35 +1,25 @@
 <h1>All of @<%= @user.username %>'s Sends</h1>
 <!-- Display sent problem through partial -->
+<%= link_to "Add New Send", new_user_send_path if current_user == @user %>
 
-<!--render partial: 'problems/problem', locals: { problem: @user.send.problem } --><br>
-
-<%# if sender?(@user) %>
-  <%= link_to "Add New Send", new_user_send_path %><br>
-<%# end %>
-
-<h3>Problems Sent: <%= @user.sends.count %><h3>
-<h3>Hardest Send: <%=@user.hardest_send %></h3>
+<%= render '/layouts/user_preview' %>
 <hr>
-<h4>Filter Sends By</h4>
-<p><b>Grades:</b> toggle bar to choose range of grades</p>
-<p><b>Set dates:</b> toggle bar to choose range of set_dates</p>
 
 <h4>Sort Sends By</h4>
 <ul>
   <li><%= link_to "Most Recent (default)", user_sends_path(@user) %></li>
-  <li>Wall</li>
+  <%# <li>Wall</li>
   <%= select_tag :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %>
-
   <li><%= link_to "Hardest to easiest", user_sends_sort_easiest_path(@user) %></li> 
   <li><%= link_to "Easiest to hardest", user_sends_sort_hardest_path(@user) %></li> 
 </ul><br><hr>
 
 <h2> All Results </h2>
 <!-- Display sends -->
-<table>
-  <thead>
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-dark">
     <th>Date Sent</th>
-    <th>Name</th>
+    <th>Problem Name</th>
     <th>Wall</th>
     <th>Color</th>
     <th>Grade</th>

@@ -1,21 +1,16 @@
 <!-- Display all problems -->
-<h3><%= "Currently logged in as #{current_user.username}" %></h3>
 
 <h1>All Problem Logs</h1>
 <%= link_to "Add New Problem", new_problem_path %><br>
 
-<h4>Filter By</h4>
-<p><b>Grades:</b> toggle bar to choose range of grades</p>
-<p><b>Set dates:</b> toggle bar to choose range of set_dates</p>
-
 <h4>Sort By</h4>
 <ul>
   <li><%= link_to "Most Recent (default)", problems_path %></li>
-  <li>Wall</li>
-  <%= select_tag :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %>
+  <%# <li>Wall</li> %>
+  <%# <%= select_tag :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %> 
   <li><%= link_to "Easiest", problems_sort_easiest_path %></li>
   <li><%= link_to "Hardest", problems_sort_hardest_path %></li>
-  <li>Style</li>  
+  <%# <li>Style</li>   %>
 </ul>
 <br><hr>
 

@@ -5,7 +5,7 @@
   <li>Color: <%= @problem.color %></li>
   <li>Grade: <%= @problem.grade %></li>
   <% if @problem.image.present? %>
-    <li>Image:<br><%= @problem.image %></li>
+    <li>Image:<br><%= @problem.image.html_safe %></li>
   <% end %>
   <!-- helper method to display style in sentence -->
   <li>Styles: <%= display_styles(@problem) %></li>
@@ -19,6 +19,6 @@
   <!-- float right if possible -->
   <p><%= display_attempts(send) %></p>
   <p>Sent on: <%= send.date_sent %></p>
-  <p><%= send.image if send.image %></p>
+  <p><%= send.image.html_safe if send.image %></p>
   <br>
 <% end %>
