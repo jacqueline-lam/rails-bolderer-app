@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # authenticate user - verify they exist in db by username
+    # Authenticate user - verify they exist in db by username
+    user = User.find_by(username: params[:username])
     # and that password matches hashed password in db
     # if it does, log them in with session hash
-    user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       log_in(user)
       redirect_to user_path(user)
