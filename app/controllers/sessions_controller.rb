@@ -10,15 +10,16 @@ class SessionsController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       # Person is 100% trusted coming from GitHub
       raise auth_hash.inspect 
-      # oauth_email = request.env["omniauth.auth"]["info"["email"]
-      # if user = User.find_by(:username => oauth_email)
-        # user exists 
+      user = User.find_or_create_by_omniauth(auth_hash)
+      log_in(user)
+
+      redirect_to root_path
     else 
+      # Normal Login with Username and Password
       # Authenticate user - verify they exist in db by username
       user = User.find_by(username: params[:username])
       # and that password matches hashed password in db
       # if it does, log them in with session hash
-
       if user && user.authenticate(params[:password])
         log_in(user)
         redirect_to user_path(user)
