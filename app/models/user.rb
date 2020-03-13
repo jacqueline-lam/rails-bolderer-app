@@ -7,15 +7,9 @@ class User < ApplicationRecord
   has_secure_password
   validates_presence_of :username, :password
   validates_uniqueness_of :username
+  # query user table for user who climbed the most hardest graded problem 
+  scope :best_climber, -> { joins(:problems).order('grade desc').distinct.limit(1).first } 
   
-  def self.best_climber
-    # User.find_by()
-  end
-
-  def best_climber
-    # user who climbed the most hardest graded problem 
-  end
-
   def hardest_send
     self.problems.order('grade desc').limit(1).first.grade
   end
@@ -29,11 +23,4 @@ class User < ApplicationRecord
     return self.find_by(github_uid: auth_hash["uid"])
   end
   
-  def self.find_or_create_by_omniauth(auth_hash)
-    
-    self.where(github_uid: auth_hash["info"]["uid"]).first_or_create do |user|
-      user.username = auth_hash["info"]["nickname"]
-      user.password = SecureRandom.hex
-    end
-  end
 end

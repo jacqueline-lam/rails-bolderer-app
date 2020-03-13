@@ -8,6 +8,7 @@ class Problem < ApplicationRecord
   # Query Problem table for all problem instances
   scope :sort_by_date, -> { order('created_at desc') }
   scope :sort_by_grade, -> { order('grade desc') } 
+  
   # scope :filter_by_grades -> (min_grade, max_grade) { where(grade: (min_grade..max_grade)) }
   # scope :filter_by_style -> (selected_style) { where(style: selected_style) }
   # scope :filter_by_wall -> (selected_wall) { where(wall_id: selected_wall ) }

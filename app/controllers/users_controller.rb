@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :require_logout, only: [:new, :create]
 
   def index
+    @best_climber = User.best_climber
   end
 
   def new 
