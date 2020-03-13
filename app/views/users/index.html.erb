@@ -1,7 +1,7 @@
 <h1>All Users</h1>
 
 <!-- Extra features -->
-<!-- <div id="leaderboard"> -->
+ <div id="leaderboard">
   <h3>Leaderboard</h3>
   <!-- <div id="leaderboard_redpoint"> -->
     <h4>Redpoint Winners</h4>
@@ -24,13 +24,28 @@
     </table>
   <!-- </div> -->
 
-  <!-- <div id="leaderboard_crusher"> -->
+  <div id="leaderboard_crusher">
     <h4>Crusher of The Month</h4>
     <i>Who climbed the hardest grade this month?</i><br>
     <h5><img src="/images/winner.png" alt="winner" width="30" height="30">
       The winner is... @<%= link_to @best_climber.username, user_path(@best_climber) %>
     </h5>
-  <!-- </div> -->
-<!-- </div><hr> -->
+  </div>
+</div><hr>
 
 <!-- Display all users -->
+<h3>Check out other users' profiles</h3>
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="thead-dark">
+      <th>User</th>
+      <th>Problems Sent</th>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%=link_to user.username, user_path(user) %></td>
+        <td><%= user.sends.count %></a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
