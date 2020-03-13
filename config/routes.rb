@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   get '/problems/filter/style', to: 'problems#style' # maybe
   get '/problems/filter/wall', to: 'problems#wall' # maybe
 
+  # Provide a route for :provider strategies to "call back" to
+  # after the authenticating 3rd party decides whether the user has passed or failed authentication
+  # handshake
+  get '/auth/:provider/callback', to: 'sessions#create'
 end
