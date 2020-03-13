@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # ActiveRecord macro works in conjunction with ruby gem bcrypt
   # to encrypt password, gives us ability to access attr `password`
   has_secure_password
-  validates_presence_of :username, :password, :password_confirmation
+  validates_presence_of :username, :password
   validates_uniqueness_of :username
   
   def self.best_climber
@@ -23,11 +23,16 @@ class User < ApplicationRecord
   def sort_user_sends_by_date
     self.sends.order('date_sent desc')
   end
+
+  def self.find_by_omniauth(auth_hash)
+    # always return an instance of user just found  
+    return self.find_by(github_uid: auth_hash["uid"])
+  end
   
   def self.find_or_create_by_omniauth(auth_hash)
-    # always return an instance of user just found or created 
-    # pass newly instantiated user to the block and set their password + save user
-    self.where(username: auth_hash["extra"]["raw_info"]["login"]).first_or_create do |user|
+    
+    self.where(github_uid: auth_hash["info"]["uid"]).first_or_create do |user|
+      user.username = auth_hash["info"]["nickname"]
       user.password = SecureRandom.hex
     end
   end

@@ -10,8 +10,14 @@ class SessionsController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       # Person is 100% trusted coming from GitHub
       # find or create them in db by uid
-      user = User.find_or_create_by_omniauth(auth_hash)
-      binding.pry
+      user = User.find_by_omniauth(auth_hash)
+      if !user
+        user = User.create(
+          github_uid: auth_hash["uid"],
+          username: auth_hash["info"]["nickname"],
+          password: SecureRandom.hex
+        )
+      end
       log_in(user)
 
       redirect_to problems_path
