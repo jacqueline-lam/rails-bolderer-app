@@ -1,6 +1,11 @@
 <h1><%= @user.username %></h1>
-<h4>Problems Sent: <%= @user.sends.count %></h4>
-<h4><img src="/images/hardest_send.png" alt="hardest grade climbed" width="30" height="30">Hardest Send: <%= @user.hardest_send %></h4><br>
+<h4>
+  Problems Sent: <%= @user.sends.count %>
+</h4>
+<h4>
+  <img src="/images/hardest_send.png" alt="hardest grade climbed" width="30" height="30">
+  Hardest Send: <%= @user.hardest_send %>
+</h4><br>
 <%= link_to 'See All Sends', user_sends_path(@user) if @user.sends.any? %><br>
 <%= link_to 'Add sends', new_user_send_path(@user) if @user == current_user %>
 
