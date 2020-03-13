@@ -24,4 +24,11 @@ class User < ApplicationRecord
     self.sends.order('date_sent desc')
   end
   
+  def self.find_or_create_by_omniauth(auth_hash)
+    # always return an instance of user just found or created 
+    # pass newly instantiated user to the block and set their password + save user
+    self.where(username: auth_hash["extra"]["raw_info"]["login"]).first_or_create do |user|
+      user.password = SecureRandom.hex
+    end
+  end
 end

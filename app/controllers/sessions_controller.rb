@@ -9,14 +9,15 @@ class SessionsController < ApplicationController
     # If this object exists, user loggeed in via Oauth, else login normally
     if auth_hash = request.env["omniauth.auth"]
       # Person is 100% trusted coming from GitHub
-      raise auth_hash.inspect 
+      # find or create them in db by uid
       user = User.find_or_create_by_omniauth(auth_hash)
+      binding.pry
       log_in(user)
 
-      redirect_to root_path
+      redirect_to problems_path
     else 
       # Normal Login with Username and Password
-      # Authenticate user - verify they exist in db by username
+      # Locally authenticate user - verify they exist in db by username
       user = User.find_by(username: params[:username])
       # and that password matches hashed password in db
       # if it does, log them in with session hash
