@@ -34,5 +34,4 @@ class UsersController < ApplicationController
   def validate_user
     redirect_to users_path unless User.find_by(id: params[:id])
   end
-
 end

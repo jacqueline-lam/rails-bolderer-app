@@ -21,17 +21,15 @@
 
 <h2>All Results</h2>
 
-<table>
-  <thead>
+<table class="table table-bordered table-striped table-hover">
+  <thead class="thead-dark">
     <th>Set</th>
     <th>Wall</th>
     <th>Name</th>
     <th>Color</th>
     <th>Grade</th>
     <th>Sends</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>See Details</th>
   </thead>
   <tbody>
     <% @problems.each do |problem| %>
@@ -44,13 +42,6 @@
         <td><%= problem.sends.count %></td>
 
         <td><%= link_to 'See details', problem_path(problem) %></td>
-        <!-- <#% if problem.user == current_user %> -->
-          <td>Edit problem</td>
-          <td> Delete problem</td>
-        <!-- <%# else %> -->
-        <!-- <td></td> -->
-        <!-- <td></td> -->
-      <!-- <%# end %> -->
       </tr>
 
     <% end %>

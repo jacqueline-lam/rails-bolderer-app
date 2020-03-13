@@ -1,11 +1,12 @@
 class SendsController < ApplicationController
   # call to the ActionController class method before_action
   # register a filter 
+  before_action :require_login
   before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest]
   before_action :get_send, only:[:show, :edit, :update, :destroy]
-  before_action :require_login
   before_action :validate_user
-  before_action :validate_sender, only: [:new, :create,:edit, :update, :destroy]
+  before_action :validate_sender, only: [:new, :create, :edit, :update, :destroy]
+  before_action :no_sends?, only: [:index, :show]
   before_action :validate_send_id, only: [:show, :update, :destroy]
   # before_action :validate_sender, only: [:new, :create]
 
@@ -14,6 +15,7 @@ class SendsController < ApplicationController
   end
   
   def show
+
   end
  
   def new
@@ -75,6 +77,10 @@ class SendsController < ApplicationController
 
   def validate_send_id
     redirect_to user_sends_path(get_user) unless !!get_send 
+  end
+
+  def no_sends?
+    redirect_to user_path(get_user) if @user.sends.empty?
   end
 
   def send_params

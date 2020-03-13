@@ -49,14 +49,14 @@
         <td><%= send.attempts %> attempts</td>
 
         <td><%= link_to 'See details', user_send_path(@user, send) %></td>
-        <!-- <#% if problem.user == current_user %> -->
+        <% if @user == current_user %>
           <td><%= link_to "Edit send", edit_user_send_path(@user, send) %></td>
           <!-- <button_to(str), URL, method:"DELETE", class:"destory"></button>`-->
           <td><%= button_to "x", user_send_path(@user, send), :method => "delete" %></td>
-        <!-- <%# else %> -->
-        <!-- <td></td> -->
-        <!-- <td></td> -->
-      <!-- <%# end %> -->
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %> 
       </tr>
     <% end %>
   </tbody>
