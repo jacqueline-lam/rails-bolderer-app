@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logout
-    redirect_to problems_path unless session.empty? 
+    redirect_to problems_path unless session[:user_id].nil?
   end
 end
