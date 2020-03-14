@@ -28,19 +28,23 @@ Specs:
   - Model objects: User (name and password must exit and match db), ProblemStyle must have unique problem_id, Problem (name, color, grade), Send (user_id, date_sent, unique problem_id, attempts > 0, date_sent to be set after problem created_at date)
   - Authroization helper methods built in controllers to avoid URL hacking
 - [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-- [ ] Include signup (how e.g. Devise)
-- [ ] Include login (how e.g. Devise)
-- [ ] Include logout (how e.g. Devise)
+- [x] Include signup (how e.g. Devise)
+- [x] Include login (how e.g. Devise)
+- [x] Include logout (how e.g. Devise)
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth)
+  - Integrated GitHub Authentication with Omniauth 
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
+  - users/:user_id/sends
+  - users/:user_id/sends/:id/show
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+  - users/:user_id/sends/new
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)
-
+  - views/errors partial to display all validation errors new creating new problems, new users, and new sends. 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [X] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
 
 # Blog post
 URL: 
