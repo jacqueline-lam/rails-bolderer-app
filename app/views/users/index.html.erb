@@ -2,39 +2,47 @@
 
 <!-- Extra features -->
  <div id="leaderboard">
-  <h3>Leaderboard</h3>
-  <!-- <div id="leaderboard_redpoint"> -->
+  <h3>LEADERBOARD</h3>
+  <div id="leaderboard_redpoint">
     <h4>Redpoint Winners</h4>
     <i>Who climbed the most problems this month?</i>
-    <table>
-      <thead>
-        <th><img src="/images/winner.png" alt="winner" width="30" height="30"></th>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <th><%= image_tag "winner.png", class: "image_icon" %></th>
         <th>Winners</th>
         <th>Problems sent</th>
       </thead>
       <tbody>
-        <!-- users_and_problem_count[0..4].each_with_index do |arr, idx| -->
-          <tr>
-            <td>1</td>
-            <td>username</a></td>
-            <td>sends</td>
-          </tr>
-        <!-- end -->
+        <tr>
+          <td>1</td>
+          <td>example-user</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>example-user-2</td>
+          <td>7</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>example-user-3</td>
+          <td>5</td>
+        </tr>                
       </tbody>
     </table>
-  <!-- </div> -->
+  </div>
 
   <div id="leaderboard_crusher">
     <h4>Crusher of The Month</h4>
     <i>Who climbed the hardest grade this month?</i><br>
-    <h5><img src="/images/winner.png" alt="winner" width="30" height="30">
-      The winner is... @<%= link_to @best_climber.username, user_path(@best_climber) %>
+    <h5><%= image_tag "winner.png", class: "image_icon" %>
+      The winner is... <span>@<%= link_to @best_climber.username, user_path(@best_climber) %></span>!!
     </h5>
   </div>
-</div><hr>
+</div><br><hr>
 
 <!-- Display all users -->
-<h3>Check out other users' profiles</h3>
+<h3>ALL USERS</h3>
   <table class="table table-bordered table-striped table-hover">
     <thead class="thead-dark">
       <th>User</th>

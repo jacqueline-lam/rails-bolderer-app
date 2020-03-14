@@ -27,5 +27,4 @@ class User < ApplicationRecord
     # always return an instance of user just found  
     return self.find_by(github_uid: auth_hash["uid"])
   end
-  
 end

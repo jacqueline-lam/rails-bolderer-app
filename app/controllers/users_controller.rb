@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @best_climber = User.best_climber
+    # @crushers = User.crushers_of_the_month
   end
 
   def new 

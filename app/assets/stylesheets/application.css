@@ -115,17 +115,22 @@ a{
   color: #75A5C6;
 }
 
+.image_icon{
+  width: 30px;
+  height: 30px;
+}
+
 .btn{
   display: block;
   margin: 0 auto;
 }
 
 .rounded{
-  width: 100%; height: auto;"
+  width: 100%; height: auto;
 }
 
 #leaderboard a{
-  color: white;
+  color: #F8695A;
   font-size: 120%;
 }
 

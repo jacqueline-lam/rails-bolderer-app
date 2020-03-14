@@ -1,8 +1,8 @@
 <h4>
-  <img src="/images/problems_sent.png" alt="checklist" width="30" height="30">
+  <%= image_tag "problems_sent.png", class: "image_icon" %>
   Problems Sent: <%= @user.sends.count %>
 </h4>
 <h4>
-  <img src="/images/hardest_send.png" alt="hardest grade climbed" width="30" height="30">
+  <%= image_tag "hardest_send.png", class: "image_icon" %>
   Hardest Send: <%= @user.hardest_send %>
 </h4><br>
