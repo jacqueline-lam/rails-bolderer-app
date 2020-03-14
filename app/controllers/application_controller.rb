@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if !logged_in?
-      flash[:alert] = "Please login/ create account to view this page."  
+      flash[:alert] = "Login/ create account to view this page."  
       redirect_to :root 
     end
   end
