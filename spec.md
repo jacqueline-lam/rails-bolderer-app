@@ -47,7 +47,7 @@ Confirm:
 - [x] Views use partials if appropriate
 
 # Blog post
-URL: 
+URL: [Ruby on Rails App: Domain With Many-to-many Relationships](https://dev.to/jacquelinelam/ruby-on-rails-app-domain-with-many-to-many-relationships-3f5i)
 
 ---
 # Additional Notes:
@@ -62,7 +62,13 @@ URL:
   
 * View helper method: convert style array into a string
   * format_timestamp_to_set_date
-* Helper method: 
+* Helper methods in ApplicationController:
+  * login(user)
+  * logged_in?
+  * current_user
+  * validate_user
+  * require_login
+  * require_logout
 
 * Nested resources: 
   * users/:id/rewards (all rewards available) and users/:id/rewards/new (admin to create new reward options to user)
