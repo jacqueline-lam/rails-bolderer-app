@@ -2,7 +2,7 @@ class SendsController < ApplicationController
   # call to the ActionController class method before_action
   # register a filter 
   before_action :require_login
-  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest]
+  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :edit, :update]
   before_action :get_send, only:[:show, :edit, :update, :destroy]
   before_action :validate_user
   before_action :validate_sender, only: [:new, :create, :edit, :update, :destroy]
@@ -27,7 +27,7 @@ class SendsController < ApplicationController
     # shielding data by assigning send's user_id here instead of via hidden_field in view form
     @send = current_user.sends.build(send_params)
     if @send.save #if able to run validations
-      redirect_to user_sends_path(@send.user)
+      redirect_to user_send_path(@send.user, @send)
     else
       render :new
     end
@@ -37,6 +37,13 @@ class SendsController < ApplicationController
   end
 
   def update
+    @send.update(send_params)
+    if @send.save
+      redirect_to user_sends_path(@send.user, @send)
+    else
+      render :edit
+    end
+  
   end
 
   def destroy

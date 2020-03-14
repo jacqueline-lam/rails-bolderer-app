@@ -20,7 +20,10 @@ class ProblemsController < ApplicationController
 
   def show
     @problem = Problem.find_by_id(params[:id])
-    redirect_to problems_path if !@problem
+    if !@problem
+      flash[:alert] = "Problem doesn't exit."
+      redirect_to problems_path 
+    end
   end
 
   def easiest

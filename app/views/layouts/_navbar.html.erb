@@ -1,4 +1,5 @@
-<a class="navbar-brand" href="/"><img src="/images/icon.png" alt="logo"></a>
+<%# <a class="navbar-brand" href="/"><img src="/images/icon.png" alt="logo"></a> %>
+<%= link_to image_tag("icon.png"), root_path, class: "navbar-brand" %>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -28,7 +29,11 @@
     <% else %>
       <li class="nav-item">
         <%= link_to "Create Account", new_user_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
         <%= link_to "Login", login_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
         <%= link_to "Login via GitHub", '/auth/github', class: "nav-link" %>
       </li>
     <% end %>

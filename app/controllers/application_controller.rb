@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logout
-    if logged_in?
+    if logged_in? && !current_user.github_uid
       flash[:alert] = "Please log out of your account first."  
       redirect_to problems_path 
     end

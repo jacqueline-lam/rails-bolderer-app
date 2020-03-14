@@ -19,8 +19,8 @@ class Send < ApplicationRecord
   # scope :filter_by_wall -> (selected_wall) { where(wall_id: selected_wall ) }
 
   def valid_date?
-    if date_sent.present? && self.problem.present? && (date_sent < self.problem.created_at)
-      errors.add(:date_sent, "must be after problem set date")
+    if date_sent.present? && self.problem.present? && (date_sent < self.problem.convert_created_at_to_date)
+      errors.add(:date_sent, "must be on or after problem set date")
     end
   end
 end

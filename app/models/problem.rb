@@ -51,4 +51,8 @@ class Problem < ApplicationRecord
   def convert_grade_to_number
     self.grade.delete("V").to_i
   end
+
+  def convert_created_at_to_date
+    self.created_at.in_time_zone("Eastern Time (US & Canada)").to_date
+  end
 end
