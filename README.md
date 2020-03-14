@@ -16,14 +16,14 @@ Go to your terminal and change directory:
 If you don't have Ruby, please install Ruby version `ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-darwin19]`.
 
  With Rubygems loaded, you can install all of Rails and its dependencies using the following command through the command line:
- 
+
     $ gem install rails -v 6.0.2
 
 Use the following command to make Rails executable available.
 
     $ rbenv rehash
 
-More installation instructions can be found on the [Ruby on Rails Guide]: (https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails)
+More installation instructions can be found on the [Ruby on Rails Guide](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails)
 
 Once Ruby and Rails are installed, run:
 
