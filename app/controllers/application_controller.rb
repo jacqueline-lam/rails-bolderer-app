@@ -1,9 +1,16 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?, :current_user, :log_in
+  helper_method :logged_in?, :current_user, :log_in, :validate_user, :require_login, :require_logout
   def index
   end
   
   # Helper methods
+  def validate_user
+    if !get_user
+      flash[:alert] = "This user doesn't exist. Please check out other users."
+      redirect_to users_path 
+    end
+  end
+
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) 
   end
@@ -13,7 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to :root unless logged_in?
+    if !logged_in?
+      flash[:alert] = "Please login/ create account to view this page."  
+      redirect_to :root 
+    end
   end
 
   def log_in(user)
@@ -21,6 +31,9 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logout
-    redirect_to problems_path unless session[:user_id].nil?
+    if logged_in?
+      flash[:alert] = "Please log out of your account first."  
+      redirect_to problems_path 
+    end
   end
 end

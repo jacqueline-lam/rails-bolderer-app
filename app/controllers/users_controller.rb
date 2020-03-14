@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:show, :index]
   before_action :validate_user, only: [:show]
+  before_action :get_user, only: [:show]
   before_action :require_logout, only: [:new, :create]
 
   def index
@@ -24,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
   end
 
   private 
@@ -33,7 +33,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
   
-  def validate_user
-    redirect_to users_path unless User.find_by(id: params[:id])
+  def get_user
+    # returns @user or find user and set the instance variable 
+    @user ||= User.find_by(id: params[:id])
   end
 end

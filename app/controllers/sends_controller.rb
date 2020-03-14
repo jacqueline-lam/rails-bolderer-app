@@ -65,22 +65,27 @@ class SendsController < ApplicationController
     # returns @user or find user and set the instance variable 
     @send ||= Send.find_by(id: params[:id])
   end
-
-  def validate_user
-    redirect_to users_path unless !!get_user
-  end
  
   def validate_sender
     validate_user
-    redirect_to user_sends_path(get_user) unless current_user == get_user
+    if current_user != get_user
+      flash[:alert] = "You're not authroized to create/ update this user's sends!"  
+      redirect_to user_sends_path(get_user) 
+    end
   end
 
   def validate_send_id
-    redirect_to user_sends_path(get_user) unless !!get_send 
+    if !get_send
+      flash[:alert] = "This send doesn't exist. Please check out other sends by #{get_user.username}."  
+      redirect_to user_sends_path(get_user)
+    end
   end
 
   def no_sends?
-    redirect_to user_path(get_user) if @user.sends.empty?
+    if @user.sends.empty?
+      flash[:alert] = "#{get_user.username} user has not logged any sends yet."  
+      redirect_to user_path(get_user) 
+    end
   end
 
   def send_params
