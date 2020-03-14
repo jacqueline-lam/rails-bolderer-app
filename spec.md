@@ -19,7 +19,7 @@ Specs:
     - Problem has many Users through Sends
     - Problem has many Styles through ProblemStyles
     - Style has many Problems through ProblemStyles
-- [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
+- [x] Include at least one xmany-to-many relationship ( has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)
   - User and Problems through Sends
   - Problem and Style through ProblemStyles
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)
@@ -31,7 +31,7 @@ Specs:
 - [ ] Include signup (how e.g. Devise)
 - [ ] Include login (how e.g. Devise)
 - [ ] Include logout (how e.g. Devise)
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
 - [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [x] Include form display of validation errors (form URL e.g. /recipes/new)

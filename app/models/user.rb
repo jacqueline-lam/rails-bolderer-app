@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_secure_password
   validates_presence_of :username, :password
   validates_uniqueness_of :username
-  # query user table for user who climbed the most hardest graded problem 
+  # query user table for user who climbed the hardest graded problem 
   scope :best_climber, -> { joins(:problems).order('grade desc').distinct.limit(1).first } 
 
   def hardest_send
