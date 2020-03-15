@@ -8,7 +8,17 @@ class User < ApplicationRecord
   validates_presence_of :username, :password
   validates_uniqueness_of :username
   # query user table for user who climbed the hardest graded problem 
-  scope :best_climber, -> { joins(:problems).order('grade desc').distinct.limit(1).first } 
+  scope :best_climber, -> { 
+    joins(:problems).order('grade desc')
+    .joins(:sends).where('sends.date_sent BETWEEN ? AND ?', Time.zone.today.beginning_of_month, Time.zone.today + 1.day)
+    .distinct.limit(1).first 
+  }
+  scope :top_three, -> {
+    joins(:sends)
+    .where('sends.date_sent BETWEEN ? AND ?', Time.zone.today.beginning_of_month, Time.zone.today + 1.day)
+    .group('user_id')
+    .order('count(user_id) DESC')
+  }
 
   def hardest_send
     user_problems = self.problems

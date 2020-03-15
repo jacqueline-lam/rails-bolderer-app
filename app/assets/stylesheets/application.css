@@ -133,6 +133,10 @@ a{
   text-align: center;
 }
 
+.checkbox {
+  padding-left: 0.4em;
+}
+
 #leaderboard a{
   color: #F8695A;
   font-size: 120%;

@@ -9,12 +9,4 @@ module ProblemsHelper
     problem.styles.map(&:name).join(', ')
   end
 
-  def display_attempts(send)
-    attempts = send.attempts
-    if attempts == 1
-      '⚡ Flashed'
-    else
-      "✅ #{attempts} attempts"
-    end
-  end
 end

@@ -5,25 +5,25 @@
 <%= form_for @problem do |f| %>
   <%= f.label :wall %>
   <div><%= f.select :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %></div>
-  <br><br>
+  <br>
   <%= f.label :name %>
   <div><%= f.text_field :name %></div>
-  <br><br>
+  <br>
   <%= f.label :color %>
   <!-- f.select :color, options_for_select(Problem::COLORS, :color, :color) -->
   <div><%= f.select :color, options_for_select(Problem::COLORS), prompt: 'Select Color' %></div>
-  <br><br>
+  <br>
   <%= f.label :grade %>
   <div><%= f.select :grade, options_for_select(Problem::GRADES), prompt: 'Select Grade' %></div>
-  <br><br>
+  <br>
   <%= f.label :styles %><br>
   <div><%= f.collection_check_boxes :style_ids, Style.all, :id, :name %></div>
   <!-- <input type="checkbox" value="1" name="problem[style_ids][]" id="style_id"> -->
-  <br><br>
+  <br>
   <%= f.label :image %>
-  <div><%= f.text_field :image %></div><br>
+  <div><%= f.text_field :image %></div>
   <i>*Instructions: Drop your image onto <a href="https://imgur.com">Imgur</a>. Click 'get share links' and copy the "Embed in HTML" link.</i>
   <br><br>
 
-  <%= f.submit %> 
+  <%= f.submit class:"btn btn-lg btn-success" %> 
 <% end %>

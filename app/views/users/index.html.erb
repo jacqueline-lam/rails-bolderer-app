@@ -13,21 +13,13 @@
         <th>Problems sent</th>
       </thead>
       <tbody>
+        <% @red_point_winners.each.with_index(1) do |winner, index| %>
         <tr>
-          <td>1</td>
-          <td>example-user</td>
-          <td>10</td>
+          <td><%= index %></td>
+          <td><%= link_to winner.username, user_path(winner) %></td>
+          <td><%= sends_this_month(winner).count %></td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>example-user-2</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>example-user-3</td>
-          <td>5</td>
-        </tr>                
+        <% end %>                
       </tbody>
     </table>
   </div>

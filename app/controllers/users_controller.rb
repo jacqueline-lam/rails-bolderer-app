@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @red_point_winners = User.top_three
     @best_climber = User.best_climber
-    # @crushers = User.crushers_of_the_month
   end
 
   def new 
