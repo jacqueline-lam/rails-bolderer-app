@@ -1,4 +1,4 @@
-<h2>Login</h2>
+<h2>Login</h2><br>
 
 <!-- Print error message -->
 <% if !!@error %>
@@ -10,10 +10,10 @@
 
 <%= form_tag(login_path) do %>
   <%= label_tag :username %>
-  <%= text_field_tag :username %>
+  <div><%= text_field_tag :username %></div>
   <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag 'Log In'%>
-<% end %>
+  <div><%= password_field_tag :password %></div><br>
+  <%= submit_tag 'Log In', class: 'btn btn-primary d-inline' %>
+<% end %><br>
 
 <%= link_to "Login via GitHub", 'auth/github' %>

@@ -2,13 +2,14 @@
 
 <!-- Display error messages -->
 <%= render partial: '/errors', locals: { record: @user } %><br>
-
+<div class="form">
 <%= form_for @user do |f| %> 
   <%= f.label :username %>
   <div><%= f.text_field :username %></div>
   <%= f.label :password %>
   <div><%= f.password_field :password %></div>
   <%= f.label :confirm_password %>
-  <div><%= f.password_field :password_confirmation %></div><br>
-  <%= f.submit "Create Account" %>
+  <div><%= f.password_field :password_confirmation %></div><br><br>
+  <%= f.submit 'Create Account', class: 'btn btn-primary d-inline' %>
 <% end %>
+</div>

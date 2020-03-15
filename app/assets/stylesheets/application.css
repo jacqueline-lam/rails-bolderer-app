@@ -129,6 +129,10 @@ a{
   width: 100%; height: auto;
 }
 
+.form{
+  text-align: center;
+}
+
 #leaderboard a{
   color: #F8695A;
   font-size: 120%;
