@@ -1,6 +1,6 @@
 <h1><%= @problem.name %> at <%= @problem.wall.name %> Wall</h1>
-<h3>Set: <%= format_timestamp_to_set_date(@problem) %></h3>
-<h4>Sends: <%= @problem.sends.count%> </a></h4>
+<h3>Set: <%= format_timestamp_to_set_month(@problem) %></h3>
+<h4><%= display_sends_count(@problem) %></a></h4>
 <ul>
   <li>Color: <%= @problem.color %></li>
   <li>Grade: <%= @problem.grade %></li>
@@ -18,7 +18,7 @@
   <h3>@<%= link_to send.user.username, user_path(send.user) %></h3>  
   <!-- float right if possible -->
   <p><%= display_attempts(send) %></p>
-  <p>Sent on: <%= send.date_sent %></p>
+  <p>Sent on: <%= display_date_sent(send) %></p>
   <p><%= send.image.html_safe if send.image %></p>
   <br>
 <% end %>

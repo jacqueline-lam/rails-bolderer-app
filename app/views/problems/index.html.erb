@@ -29,7 +29,7 @@
   <tbody>
     <% @problems.each do |problem| %>
       <tr>
-        <td><%= format_timestamp_to_set_date(problem) %></td>
+        <td><%= format_timestamp_to_set_month(problem) %></td>
         <td><%= problem.wall.name %></td>
         <td><h5><%= problem.name %></h5></td>
         <td><%= problem.color %></td>

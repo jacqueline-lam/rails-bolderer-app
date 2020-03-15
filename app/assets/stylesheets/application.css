@@ -22,7 +22,7 @@
 
 /* Navigation
 ----------------------------------------------------*/
-.navbar-brand img{
+.navbar-brand img {
   position: relative;
   width: 50px;
   left: 15px;
@@ -56,6 +56,30 @@
   color: black;
 }
 
+/*  HEADINGS
+-------------------------------------------------------*/
+
+h1, h2, h3, h4{
+  padding-top: 30px;
+  font-family: roboto;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 90px;
+  text-align: center;
+  padding-bottom: 5%;
+  text-shadow: 2px 2px #000000;
+  color: #ccb200;
+}
+
+h3{
+  font-weight: bold;
+  text-shadow: 2px 2px #C0C0C0;
+  color: #0F4C81;
+  /*background-color: #EE4838;*/
+}
+
 /*Body
 ------------------------------------------------------*/
 html{
@@ -85,26 +109,6 @@ html{
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
-h1, h2, h3, h4{
-  padding-top: 30px;
-  font-family: roboto;
-}
-
-h1{
-  font-weight: bold;
-  font-size: 90px;
-  text-align: center;
-  padding-bottom: 5%;
-  text-shadow: 2px 2px #000000;
-  color: #ccb200;
-}
-
-h3{
-  font-weight: bold;
-  text-shadow: 2px 2px #C0C0C0;
-  color: #0F4C81;
-  /*background-color: #EE4838;*/
-}
 
 p, ul{
   font-size: 20px;

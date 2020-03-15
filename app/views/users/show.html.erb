@@ -1,6 +1,7 @@
 <h1><%= @user.username %></h1>
 <%= render '/layouts/user_preview' %>
 
-<%= (button_to 'See All Sends', user_sends_path(@user), method: 'get') if @user.sends.any? %><br>
-<%= (button_to 'Log a New Send', new_user_send_path(@user), method: 'get') if @user == current_user %>
+<%= (button_to 'See All Sends', user_sends_path(@user), method: 'get', class: 'btn btn-lg btn-outline-info') if @user.sends.any? %><br>
+<%= (button_to 'Log a New Send', new_user_send_path(@user), method: 'get', class: 'btn btn-outline-primary btn-lg') if @user == current_user %>
+
 

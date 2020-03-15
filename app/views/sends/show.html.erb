@@ -1,8 +1,13 @@
 <h1>@<%= @send.user.username %>'s Send</h1>
 
-<h2><%=@send.problem.name%> at <%=@send.problem.wall.name%> Wall</h2>
+<h2><%=@send.problem.name %> at <%=@send.problem.wall.name%> Wall</h2>
 <p><%= display_attempts(@send) %></p>
-<p>Sent on: <%= @send.date_sent %></p>
+<p>Sent on: <%= display_date_sent(@send) %></p>
 <%= @send.image.html_safe if @send.image %>
 <br><br>
-<%= button_to "Check out this problem", problem_path(@send.problem), method: 'get' %>
+  
+ <div class="btn-group"><%= button_to "Check out this problem", problem_path(@send.problem), method: 'get', class: "btn btn-success btn-lg" %></div>
+<% if @send.user == current_user %>
+  <div class="btn-group"><%= button_to "Edit send", edit_user_send_path(@send.user, @send), method: 'get', class: "btn btn-primary btn-lg" %></div>
+  <div class="btn-group"><%= button_to "Delete Send", user_send_path(@send.user, @send), method: "delete", class: "btn btn-danger btn-lg" %></div>
+<% end %>

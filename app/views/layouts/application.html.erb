@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Bolderer</title>
-    <link rel="icon" type="image/png" href="/images/icon.png">
+    <%= favicon_link_tag asset_path('icon.png'), :rel => 'icon', :type =>  'image/png' %>
+
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

@@ -7,4 +7,8 @@ module SendsHelper
       "✅ #{attempts} attempts"
     end
   end
+
+  def display_date_sent(send)
+    send.date_sent.strftime("%A, %e %B %Y")
+  end
 end
