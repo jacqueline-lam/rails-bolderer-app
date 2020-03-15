@@ -12,7 +12,7 @@
     <%= csp_meta_tag %>
     
     <!-- Custom CSS -->
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Bootstrap CSS -->
@@ -28,21 +28,22 @@
 
     <div class="container">
       <div class="wrapper">
-    <% flash.each do |key, value| %>
-      <% alert_class = case key
-                      when :notice then "success"
-                      when :alert then "danger"
-                      else key
-                      end %>
-      <%= content_tag :div, class: "alert alert-#{alert_class}" do %>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%= value %>
+      <% flash.each do |key, value| %>
+        <% alert_class = case key
+                        when :notice then "success"
+                        when :alert then "danger"
+                        else key
+                        end %>
+        <%= content_tag :div, class: "alert alert-#{alert_class}" do %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= value %>
+        <% end %>
       <% end %>
-    <% end %>
-        
-        <%= yield %>
-      </div>
+
+      <%= yield %>
+
     </div>
+  </div>
 
     <footer class="footer">
       <div class="container">
