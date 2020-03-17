@@ -2,7 +2,7 @@
 
 <%= form_for(@send, url: selected_path) do |f| %>
   <h4>Which problem did you send?</h4>
-  <div> <%= f.select :problem_id, option_groups_from_collection_for_select(Wall.all, :problems, :name, :id, :name, @send.problem_id || nil), prompt: "Select Problem"%></div>
+  <div><%= f.select :problem_id, option_groups_from_collection_for_select(Wall.all, :problems, :name, :id, :name, @send.problem_id || nil), prompt: "Select Problem"%></div>
   <br>
   <%= f.label :attempts %>
   <div><%= f.number_field :attempts, min: 1 %></div>
