@@ -64,16 +64,16 @@ h1, h2, h3, h4{
   font-family: roboto;
 }
 
-h1{
+h1.heading{
   font-weight: bold;
   font-size: 90px;
   text-align: center;
-  padding-bottom: 5%;
-  text-shadow: 2px 2px #000000;
+  padding-bottom: 2%;
   color: #ccb200;
+  text-shadow: 2px 2px #000000;
 }
 
-h3{
+h3.subheading{
   font-weight: bold;
   text-shadow: 2px 2px #C0C0C0;
   color: #0F4C81;
@@ -137,10 +137,6 @@ a{
   text-align: center;
 }
 
-.checkbox {
-  padding-left: 0.4em;
-}
-
 #leaderboard a{
   color: #F8695A;
   font-size: 120%;
@@ -156,8 +152,12 @@ a{
 }
 
 .field_with_errors {
-  border-left: 2px solid red;
-  color: red;
+  border-left: 2px solid #D8000C;
+  color: #D8000C;
+}
+
+.error {
+  color: #D8000C;
 }
 
 /* Footer

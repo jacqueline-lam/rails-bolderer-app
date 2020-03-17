@@ -1,5 +1,5 @@
-<h1><%= @problem.name %> at <%= @problem.wall.name %> Wall</h1>
-<h3>Set: <%= format_timestamp_to_set_month(@problem) %></h3>
+<h1 class="heading"><%= @problem.name %> at <%= @problem.wall.name %> Wall</h1>
+<h3 class="subheading">Set: <%= format_timestamp_to_set_month(@problem) %></h3>
 <h4><%= display_sends_count(@problem) %></a></h4>
 <ul>
   <li>Color: <%= @problem.color %></li>
@@ -12,10 +12,10 @@
 </ul>
 
 <br><br>
-<h3>ACTIVITY</h3><hr>
+<h3 class="subheading">ACTIVITY</h3><hr>
 <!-- order by least attempts? or latest?-->
 <% @problem.sends.each do |send| %>
-  <h3>@<%= link_to send.user.username, user_path(send.user) %></h3>  
+  <h3 class="subheading">@<%= link_to send.user.username, user_path(send.user) %></h3>  
   <!-- float right if possible -->
   <p><%= display_attempts(send) %></p>
   <p>Sent on: <%= display_date_sent(send) %></p>

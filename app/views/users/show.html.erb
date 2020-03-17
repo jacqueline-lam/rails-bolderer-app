@@ -1,4 +1,4 @@
-<h1><%= @user.username %></h1>
+<h1 class="heading"><%= @user.username %></h1>
 <%= render '/layouts/user_preview' %>
 
 <%= (button_to 'See All Sends', user_sends_path(@user), method: 'get', class: 'btn btn-lg btn-outline-info') if @user.sends.any? %><br>

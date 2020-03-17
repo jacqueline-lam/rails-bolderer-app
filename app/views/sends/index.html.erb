@@ -1,4 +1,4 @@
-<h1>All of @<%= @user.username %>'s Sends</h1>
+<h1 class="heading">All of @<%= @user.username %>'s Sends</h1>
 <!-- Display sent problem through partial -->
 <%= (button_to "Add New Send", new_user_send_path, method: 'get', class: "btn btn-outline-primary btn-lg")  if current_user == @user %>
 
@@ -36,7 +36,7 @@
         <td><%= send.problem.wall.name %></td>
         <td><%= send.problem.color %></td>
         <td><%= send.problem.grade %></td>
-        <td><%= send.attempts %> attempts</td>
+        <td><%= display_attempts(send) %></td>
         <td><%= link_to 'See details', user_send_path(@user, send) %></td>
         <% if @user == current_user %>
           <td><%= link_to "Edit send", edit_user_send_path(@user, send) %></td>

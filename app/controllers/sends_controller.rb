@@ -4,6 +4,7 @@ class SendsController < ApplicationController
   before_action :require_login
   before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :edit, :update]
   before_action :get_send, only:[:show, :edit, :update, :destroy]
+  before_action :get_problems, only:[:new, :edit]
   before_action :validate_user
   before_action :validate_sender, only: [:new, :create, :edit, :update, :destroy]
   before_action :no_sends?, only: [:index, :show]
@@ -71,6 +72,10 @@ class SendsController < ApplicationController
   def get_send
     # returns @user or find user and set the instance variable 
     @send ||= Send.find_by(id: params[:id])
+  end
+
+  def get_problems
+    @problems ||= Problem.all
   end
  
   def validate_sender
