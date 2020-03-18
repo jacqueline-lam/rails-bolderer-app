@@ -25,8 +25,10 @@
     <th>Grade</th>
     <th>Attempts</th>
     <th></th> <!-- link to send -->
-    <th></th> <!-- edit send -->
-    <th></th> <!-- delete send -->
+    <% if @user == current_user %>
+      <th></th> <!-- edit send -->
+      <th></th> <!-- delete send -->
+    <% end %>
   </thead>
   <tbody>
     <% @sends.each do |send| %>
@@ -37,14 +39,11 @@
         <td><%= send.problem.color %></td>
         <td><%= send.problem.grade %></td>
         <td><%= display_attempts(send) %></td>
-        <td><%= link_to 'See details', user_send_path(@user, send) %></td>
+        <td><%= button_to 'See details', user_send_path(@user, send), method: "get", class: "btn btn-info" %></td>
         <% if @user == current_user %>
-          <td><%= link_to "Edit send", edit_user_send_path(@user, send) %></td>
+          <td><%= button_to "Edit send", edit_user_send_path(@user, send), method: "get", class: "btn btn-info" %></td>
           <!-- <button_to(str), URL, method:"DELETE", class:"destory"></button>`-->
           <td><%= button_to "x", user_send_path(@user, send), method: "delete", class: "btn btn-outline-danger btn-sm" %></td>
-        <% else %>
-          <td></td>
-          <td></td>
         <% end %> 
       </tr>
     <% end %>
