@@ -22,7 +22,7 @@ class User < ApplicationRecord
   
   def favorite_sends
     # SQLite: Boolean values are stored as integers 0 (false) and 1 (true)
-    self.sends.where('favorite = ?', 1)
+    self.sends.where('favorite = ?', 1).order('date_sent desc')
   end
 
   def hardest_send

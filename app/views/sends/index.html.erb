@@ -10,9 +10,9 @@
   <li><%= link_to "Most Recent (default)", user_sends_path(@user) %></li>
   <%# <li>Wall</li>
   <%= select_tag :wall_id, options_from_collection_for_select(Wall.all, :id, :name), prompt: 'Select Wall' %>
-  <li><%= link_to "Hardest to easiest", user_sends_sort_easiest_path(@user) %></li> 
-  <li><%= link_to "Easiest to hardest", user_sends_sort_hardest_path(@user) %></li> 
-  <li><%= link_to "Favorites", user_sends_favorites_path(@user) %></li> 
+  <li><%= link_to "Hardest to easiest", user_hardest_sends_path(@user) %></li> 
+  <li><%= link_to "Easiest to hardest", user_easiest_sends_path(@user) %></li> 
+  <li><%= link_to "Favorites", user_favorite_sends_path(@user) %></li> 
 </ul><br><hr>
 
 <h2> All Results </h2>

@@ -52,12 +52,12 @@ class SendsController < ApplicationController
    redirect_to user_sends_path(@send.user)
   end
 
-  def easiest
+  def hardest
     @sends = Send.sort_by_grade_desc(@user.id)
     render :index
   end
 
-  def hardest
+  def easiest
     @sends = Send.sort_by_grade_asc(@user.id)
     render :index
   end
