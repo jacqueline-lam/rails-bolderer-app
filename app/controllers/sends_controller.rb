@@ -2,14 +2,13 @@ class SendsController < ApplicationController
   # call to the ActionController class method before_action
   # register a filter 
   before_action :require_login
-  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :edit, :update]
+  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :favorites, :edit, :update]
   before_action :get_send, only:[:show, :edit, :update, :destroy]
   before_action :get_problems, only:[:new, :edit]
   before_action :validate_user
   before_action :validate_sender, only: [:new, :create, :edit, :update, :destroy]
   before_action :no_sends?, only: [:index, :show]
   before_action :validate_send_id, only: [:show, :update, :destroy]
-  # before_action :validate_sender, only: [:new, :create]
 
   def index
     @sends = @user.sort_user_sends_by_date
@@ -63,6 +62,11 @@ class SendsController < ApplicationController
     render :index
   end
 
+  def favorites
+    @sends = @user.favorite_sends
+    render :index
+  end
+
   private 
   def get_user
     # returns @user or find user and set the instance variable 
@@ -101,6 +105,6 @@ class SendsController < ApplicationController
   end
 
   def send_params
-    params.require(:send).permit(:problem_id, :user_id, :attempts, :date_sent, :image)
+    params.require(:send).permit(:problem_id, :user_id, :attempts, :date_sent, :image, :favorite)
   end
 end

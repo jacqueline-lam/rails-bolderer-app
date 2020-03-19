@@ -141,6 +141,19 @@ a{
   text-align: center;
 }
 
+.checkboxes label {
+  margin-left: 5px;
+  margin-right: 20px;
+}
+
+#send_favorite {
+  margin-left: 10px;
+}
+
+p.fav{
+  color: #F8695A;
+}
+
 #leaderboard a{
   color: #F8695A;
   font-size: 120%;

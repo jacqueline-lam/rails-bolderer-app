@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :sends
     get '/sends/sort/easiest', to: 'sends#easiest'
     get '/sends/sort/hardest', to: 'sends#hardest'
+    get '/sends/favorites', to: 'sends#favorites'
   end 
 
   resources :problems, only: [:index, :show, :new, :create]

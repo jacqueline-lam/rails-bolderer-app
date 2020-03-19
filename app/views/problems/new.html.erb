@@ -17,7 +17,7 @@
   <div><%= f.select :grade, options_for_select(Problem::GRADES), prompt: 'Select Grade' %></div>
   <br>
   <%= f.label :styles %><br>
-  <div><%= f.collection_check_boxes :style_ids, Style.all, :id, :name %></div>
+  <div class="checkboxes"><%= f.collection_check_boxes :style_ids, Style.all, :id, :name %></div>
   <!-- <input type="checkbox" value="1" name="problem[style_ids][]" id="style_id"> -->
   <br>
   <%= f.label :image %>

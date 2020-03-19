@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_164753) do
+ActiveRecord::Schema.define(version: 2020_03_18_223430) do
 
   create_table "problem_styles", force: :cascade do |t|
     t.integer "problem_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_164753) do
     t.integer "problem_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "favorite", default: false, null: false
   end
 
   create_table "styles", force: :cascade do |t|

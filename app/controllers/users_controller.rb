@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   private 
   # Avoid others from passing in unsavory attributes into our form
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password)
   end
   
   def get_user

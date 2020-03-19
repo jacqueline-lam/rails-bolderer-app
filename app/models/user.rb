@@ -19,6 +19,11 @@ class User < ApplicationRecord
     .group('user_id')
     .order('count(user_id) DESC')
   }
+  
+  def favorite_sends
+    # SQLite: Boolean values are stored as integers 0 (false) and 1 (true)
+    self.sends.where('favorite = ?', 1)
+  end
 
   def hardest_send
     user_problems = self.problems
@@ -35,6 +40,6 @@ class User < ApplicationRecord
 
   def self.find_by_omniauth(auth_hash)
     # always return an instance of user just found  
-    return self.find_by(github_uid: auth_hash["uid"])
+    self.find_by(github_uid: auth_hash["uid"])
   end
 end
