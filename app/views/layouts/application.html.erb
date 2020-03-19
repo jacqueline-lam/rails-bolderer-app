@@ -29,15 +29,15 @@
 
     <div class="container">
       <div class="wrapper">
-      <% flash.each do |key, value| %>
-        <% alert_class = case key
+      <% flash.each do |name, message| %>
+        <% alert_class = case name
                         when :notice then "success"
                         when :alert then "danger"
-                        else key
+                        else name
                         end %>
         <%= content_tag :div, class: "alert alert-#{alert_class}" do %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <%= value %>
+          <%= message %>
         <% end %>
       <% end %>
 
