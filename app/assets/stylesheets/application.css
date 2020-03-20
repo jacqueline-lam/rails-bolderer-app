@@ -152,36 +152,35 @@ a{
 p.fav{
   color: #F8695A;
 }
+#leaderboard_redpoint td{
+  color: white;
+}
 
-#leaderboard a{
-  color: #F8695A;
+#leaderboard_redpoint a{
+  color: white;
   font-size: 120%;
 }
 
-#leaderboard_crusher span {
+#leaderboard_crusher span a{
   color: #F8695A;
   font-weight: bold;
 }
 
 #leaderboard h4 {
-  color: #0F4C81;
+  color: rgb(6, 17, 26);
   text-shadow: 1px 1px #75A5C6;
 }
 
-.ranking_1 {
+table td.ranking_1 {
   background-color: #F8695A;
 }
 
-td .ranking_2 {
+table td.ranking_2 {
   background-color: #DE5853;
 }
 
-td .ranking_3 {
+table td.ranking_3 {
   background-color: #D55251;
-}
-
-.rank-data {
-  color: #FFFFFF;
 }
 
 .field_with_errors {

@@ -2,8 +2,8 @@ class User < ApplicationRecord
   has_many :sends
   has_many :problems, through: :sends
 
-  # ActiveRecord macro works in conjunction with ruby gem bcrypt
-  # to encrypt password, gives us ability to access attr `password`
+  # ActiveRecord macro works in conjunction with ruby gem bCrypt
+  # to encrypt password, gives us ability to authenticate user login credentials securely
   has_secure_password
   validates_presence_of :username, :password
   validates_uniqueness_of :username

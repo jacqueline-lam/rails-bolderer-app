@@ -11,6 +11,8 @@
   <div><%= f.text_field :username %></div>
   <%= f.label :password %>
   <div><%= f.password_field :password %></div>
+  <%# field provided by has_secure_password method - compares password and password_confirmation%>
+  <%# if matched, update password_digest column %>
   <%= f.label :confirm_password %>
   <div><%= f.password_field :password_confirmation %></div><br><br>
   <%= f.submit 'Create Account', class: 'btn btn-lg btn-primary' %>
