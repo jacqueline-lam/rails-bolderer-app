@@ -132,15 +132,6 @@ a{
   height: 30px;
 }
 
-.btn{
-  display: block;
-  margin: 0 auto;
-}
-
-.btn-primary {
-  background-color: #8064A2;
-}
-
 .rounded{
   width: 100%; height: auto;
 }
