@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_18_223430) do
+ActiveRecord::Schema.define(version: 2020_03_20_070818) do
 
   create_table "problem_styles", force: :cascade do |t|
     t.integer "problem_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2020_03_18_223430) do
     t.string "name"
     t.string "color"
     t.string "grade"
-    t.integer "points"
     t.string "image"
     t.integer "wall_id"
     t.datetime "created_at", precision: 6, null: false
@@ -50,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_03_18_223430) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
-    t.integer "total_points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "github_uid"

@@ -11,6 +11,8 @@ class ProblemsController < ApplicationController
 
   def create
     @problem = Problem.new(problem_params)
+    @problem.points = @problem.convert_grade_to_int
+
     if @problem.save
       redirect_to problems_path
     else
@@ -24,7 +26,7 @@ class ProblemsController < ApplicationController
     @problem = Problem.find_by_id(params[:id])
     if !@problem
       flash[:alert] = "Problem doesn't exit."
-      redirect_to problems_path 
+      redirect_to problems_path
     end
   end
 

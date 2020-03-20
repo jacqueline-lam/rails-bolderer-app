@@ -28,6 +28,7 @@ class SendsController < ApplicationController
     # user that I want to associate with this send
     # shielding data by assigning send's user_id here instead of via hidden_field in view form
     @send = current_user.sends.build(send_params)
+ 
     if @send.save #if able to run validations
       redirect_to user_send_path(@send.user, @send)
     else

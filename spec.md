@@ -56,7 +56,7 @@ URL: [Ruby on Rails App: Domain With Many-to-many Relationships](https://dev.to/
 * Scope method: filter Problem by problem.grade, style.name, problem.date (problems_sent_this_month)
   * format problem creation date by "Month, year"
 * Model method: 
-  * Problems: sort_by_date, sort_by_grade, convert_grade_to_number
+  * Problems: sort_by_date, sort_by_grade, convert_grade_to_int
   * Users: hardest_send, sort_user_sends_by_date, (maybe: self.best_climber, best_climber)
   * (Maybe) return points of a User based on sum of all the problems' points they earned this month?
   
