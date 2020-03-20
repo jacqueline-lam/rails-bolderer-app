@@ -6,7 +6,7 @@ class SendsController < ApplicationController
   before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :favorites, :edit, :update]
   before_action :get_send, only:[:show, :edit, :update, :destroy]
   before_action :get_walls, only:[:new, :edit]
-  
+
   before_action :validate_user
   before_action :validate_sender, only: [:new, :create, :edit, :update, :destroy]
   before_action :no_sends?, only: [:index, :show]
@@ -49,7 +49,6 @@ class SendsController < ApplicationController
   end
 
   def destroy
-    # if current_user == send.user
    @send.destroy
    redirect_to user_sends_path(@send.user)
   end

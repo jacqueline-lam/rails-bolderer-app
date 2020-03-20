@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # Tell Rails what parameters are allowed to be submitted through the form to db
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
@@ -28,8 +29,11 @@ class UsersController < ApplicationController
   end
   
   private 
-  # Avoid others from passing in unsavory attributes into our form
+  # Strong params avoid others from passing in unsavory attributes into our form
+  # Private method to encapsulate permissible parameters
+    # permit list between create and update
   def user_params
+    # params that get passed in must contain a key 'user', permit optional keys
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
   

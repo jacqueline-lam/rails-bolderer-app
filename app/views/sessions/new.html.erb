@@ -8,6 +8,10 @@
   </div>
 <% end %>
 
+<%# Rails ActionView's helper method form_tag creates %>
+  <%# authenticity_token key that's sent whenever we make post request %>
+  <%# authenticity error is raised if a request is submitted from another site %>
+  <%# ensure that request is coming from authenticated user %>
 <%= form_tag(login_path) do %>
   <%= label_tag :username %>
   <div><%= text_field_tag :username %></div>

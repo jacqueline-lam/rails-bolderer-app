@@ -32,11 +32,19 @@
 /* ERROR MESSAGE
 -------------------------------------------------*/
 /* The alert message box */
-.alert {
-  padding: 20px;
+.alert-danger {
+  padding: 10px;
   background-color: #f44336; /* Red */
   color: white;
   margin-bottom: 15px;
+}
+
+.alert-success {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  margin-bottom: 15px; 
+  border-radius: .25rem;
 }
 
 /* The close button */

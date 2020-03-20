@@ -12,13 +12,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
-    <!-- Custom CSS -->
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     
+    <!-- Custom CSS -->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -29,18 +28,19 @@
 
     <div class="container">
       <div class="wrapper">
+
       <% flash.each do |name, message| %>
         <% alert_class = case name
-                        when :notice then "success"
-                        when :alert then "danger"
+                        when 'notice' then "success"
+                        when 'alert' then "danger"
                         else name
                         end %>
-        <%= content_tag :div, class: "alert alert-#{alert_class}" do %>
+         <%= content_tag :div, class: "alert alert-#{alert_class}" do %>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <%= message %>
         <% end %>
       <% end %>
-
+      
       <%= yield %>
 
     </div>
