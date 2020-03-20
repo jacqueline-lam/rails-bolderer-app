@@ -4,7 +4,7 @@
  <div id="leaderboard">
   <h3 class="subheading">LEADERBOARD</h3>
   <div id="leaderboard_redpoint">
-    <h4>Redpoint Winners</h4>
+    <h4>🔥 Redpoint Winners</h4>
     <i>Who climbed the most problems this month?</i>
     <table class="table table-hover">
       <thead class="thead-dark">
@@ -15,9 +15,9 @@
       <tbody>
         <% @red_point_winners.each.with_index(1) do |winner, index| %>
         <tr>
-          <td><%= index %></td>
-          <td><%= link_to winner.username, user_path(winner) %></td>
-          <td><%= sends_this_month(winner).count %></td>
+          <td id="ranking_1"><%= index %></td>
+          <td id="ranking_1"><%= link_to winner.username, user_path(winner) %></td>
+          <td id="ranking_1"><%= sends_this_month(winner).count %></td>
         </tr>
         <% end %>                
       </tbody>
@@ -25,7 +25,7 @@
   </div>
 
   <div id="leaderboard_crusher">
-    <h4>Crusher of The Month</h4>
+    <h4>🔥 Crusher of The Month</h4>
     <i>Who climbed the hardest grade this month?</i><br>
     <h5><%= image_tag "winner.png", class: "image_icon" %>
       The winner is... <span>@<%= link_to @best_climber.username, user_path(@best_climber) %></span>!!

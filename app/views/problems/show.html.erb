@@ -4,11 +4,11 @@
 <ul>
   <li>Color: <%= @problem.color %></li>
   <li>Grade: <%= @problem.grade %></li>
-  <% if @problem.image.present? %>
-    <li>Image:<br><%= @problem.image.html_safe %></li>
-  <% end %>
   <!-- helper method to display style in sentence -->
   <li>Styles: <%= display_styles(@problem) %></li>
+  <% if @problem.image.present? %>
+    <li>Image:<br><i><%= @problem.image.html_safe %></i></li>
+  <% end %>
 </ul>
 
 <br><br>

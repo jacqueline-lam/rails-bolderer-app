@@ -163,6 +163,23 @@ p.fav{
   font-weight: bold;
 }
 
+#leaderboard h4 {
+  color: #0F4C81;
+  text-shadow: 1px 1px #75A5C6;
+}
+
+.ranking_1 {
+  background-color: #F8695A;
+}
+
+td .ranking_2 {
+  background-color: #DE5853;
+}
+
+td .ranking_3 {
+  background-color: #D55251;
+}
+
 .rank-data {
   color: #FFFFFF;
 }
