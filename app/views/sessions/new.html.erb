@@ -20,4 +20,6 @@
   <%= submit_tag 'Log In', class: 'btn btn-lg btn-primary' %>
 <% end %><br>
 
+<%# OAuth redirects user to Github, providing Github with key and secret idenitfying my app %>
+<%# User to log in with Github%>
 <%= link_to "Login via GitHub", 'auth/github' %>

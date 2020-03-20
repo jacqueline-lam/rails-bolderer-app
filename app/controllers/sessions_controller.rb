@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
           password: SecureRandom.hex
         )
       end
+      # Login user if user exists in my system by github_uid
       log_in(user)
 
       redirect_to problems_path
