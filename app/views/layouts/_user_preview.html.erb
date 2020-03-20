@@ -4,5 +4,5 @@
 </h4>
 <h4>
   <%= image_tag "hardest_send.png", class: "image_icon" %>
-  Hardest Send: <%= @user.hardest_send %>
+  Hardest Send: <%= @user.hardest_send || "@#{@user.username} has not logged any sends."%> 
 </h4><br>

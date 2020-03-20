@@ -101,7 +101,7 @@ class SendsController < ApplicationController
 
   def no_sends?
     if @user.sends.empty?
-      flash[:alert] = "#{get_user.username} user has not logged any sends yet."  
+      flash[:alert] = "@#{get_user.username} has not logged any sends yet."  
       redirect_to user_path(get_user) 
     end
   end

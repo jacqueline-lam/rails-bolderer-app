@@ -30,7 +30,7 @@ class User < ApplicationRecord
     if user_problems.any?
       return user_problems.order('grade desc').limit(1).first.grade 
     else
-      return "#{self.username} has not logged any sends." 
+      nil 
     end
   end
 
