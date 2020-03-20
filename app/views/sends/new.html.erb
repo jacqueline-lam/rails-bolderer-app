@@ -1,3 +1,4 @@
 <h1 class="heading">Hey <%= @user.username %>, log your send!</h1>
 
-<%= render partial: 'form', locals: { selected_path: user_sends_path } %>
+<%# url: '/users/:user_id/sends', method: 'POST' %>
+<%= render partial: 'form', locals: { selected_path: user_sends_path , problem_editable: true} %>

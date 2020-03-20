@@ -9,16 +9,20 @@ Rails.application.routes.draw do
   get '/auth/github/callback', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
+  # Users
   resources :users, only: [:index, :new, :create, :show] do 
+    # Sends as nested resources of a user
     resources :sends
-    get '/sends/sort/easiest', to: 'sends#easiest', as: 'easiest_sends'
-    get '/sends/sort/hardest', to: 'sends#hardest', as: 'hardest_sends'
-    get '/sends/sort/favorites', to: 'sends#favorites', as: 'favorite_sends'
+    # Aliased path names
+    get '/sends/sort/easiest', to: 'sends#easiest', as: :easiest_sends
+    get '/sends/sort/hardest', to: 'sends#hardest', as: :hardest_sends
+    get '/sends/sort/favorites', to: 'sends#favorites', as: :favorite_sends
   end 
-
+  
+  # Problems
   resources :problems, only: [:index, :show, :new, :create]
-  get '/problems/sort/easiest', to: 'problems#easiest', as: 'easiest_problems'
-  get '/problems/sort/hardest', to: 'problems#hardest', as: 'hardest_problems'
+  get '/problems/sort/easiest', to: 'problems#easiest', as: :easiest_problems
+  get '/problems/sort/hardest', to: 'problems#hardest', as: :hardest_problems
   # get '/problems/filter/grades', to: 'problems#grades' # maybe
   # get '/problems/filter/style', to: 'problems#style' # maybe
   # get '/problems/filter/wall', to: 'problems#wall' # maybe

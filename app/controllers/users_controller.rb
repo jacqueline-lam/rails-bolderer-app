@@ -26,11 +26,11 @@ class UsersController < ApplicationController
 
   def show
   end
-
+  
   private 
   # Avoid others from passing in unsavory attributes into our form
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
   
   def get_user

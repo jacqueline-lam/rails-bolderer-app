@@ -1,13 +1,25 @@
 <%= render partial: '/errors', locals: { record: @send } %><br>
 
+<%# form_for knows that an empty, unsaved model object needs a new form %>
+ <%# and a populated object needs an edit form %>
 <%= form_for(@send, url: selected_path) do |f| %>
-  <h4>Which problem did you send?</h4>
-  <div><%= f.select :problem_id, option_groups_from_collection_for_select(Wall.all, :problems, :name, :id, :name, @send.problem_id || nil), prompt: "Select Problem"%></div>
+  <% if problem_editable %>
+    <h4>Which problem did you send?</h4>
+    <%# option_groups_from_collection_for_select %>
+    <%# Returns str of <option> tags, %> 
+    <%# grouped by <optgroup> tags based on the object relationships of the arguments %>
+    <%# (collection, group_method, group_label_method/ wall.name, option_key_method/ problem_id, option_value_method/ problem.name, selected_key = nil)%>
+    <div><%= f.select :problem_id, option_groups_from_collection_for_select(
+      @walls, :problems, :name, :id, :name, @send.problem_id || nil
+    ), prompt: "Select Problem"%></div>
+  <% else %>
+    <h3 class="subheading"><%= @send.problem.name %> at <%= @send.problem.wall.name %> Wall</h3>
+  <% end %>
   <br>
   <%= f.label :attempts %>
   <div><%= f.number_field :attempts, min: 1 %></div>
   <br>
-  <!-- date sent must be after problem created_at date-->
+  <%# date sent must be after problem created_at date %>
   <%= f.label :date_sent %>
   <div><%= f.date_field :date_sent, max: Date.today %></div>
   <br>

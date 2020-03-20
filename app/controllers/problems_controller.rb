@@ -14,6 +14,8 @@ class ProblemsController < ApplicationController
     if @problem.save
       redirect_to problems_path
     else
+      # @problem is now full of error messages
+      # re-rendered :new page knows how to display errors alongside user's enries
       render :new
     end
   end

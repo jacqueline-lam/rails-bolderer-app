@@ -2,7 +2,10 @@
 
 <!-- Display error messages -->
 <%= render partial: '/errors', locals: { record: @user } %><br>
-<div class="form">
+<div>
+<!-- `form_for` creates a form specifically for a model object.  -->
+<!--  automatically performs a route lookup to find the right URL for post: HTTP method + route --> 
+<!-- passes an instance of FormBuilder as a parameter (f) -->
 <%= form_for @user do |f| %> 
   <%= f.label :username %>
   <div><%= f.text_field :username %></div>
