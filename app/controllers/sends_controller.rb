@@ -3,7 +3,7 @@ class SendsController < ApplicationController
   # call to the ActionController class method before_action
   # register a filter 
   before_action :require_login
-  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :favorites, :edit, :update]
+  before_action :get_user, only:[:index, :show, :new, :create, :hardest, :easiest, :favorites, :color, :edit, :update]
   before_action :get_send, only:[:show, :edit, :update, :destroy]
   before_action :get_walls, only:[:new, :edit]
 
@@ -46,7 +46,6 @@ class SendsController < ApplicationController
     else
       render :edit
     end
-  
   end
 
   def destroy
@@ -68,6 +67,12 @@ class SendsController < ApplicationController
     @sends = @user.favorite_sends
     render :index
   end
+
+  def color
+    @sends = Send.sort_sends_by_color(@user.id, params[:color])
+    render :index
+  end
+
 
   private 
   def get_user

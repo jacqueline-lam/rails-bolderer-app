@@ -8,6 +8,7 @@ class Problem < ApplicationRecord
   # Query Problem table for all problem instances
   scope :sort_by_date, -> { order('created_at desc') }
   scope :sort_by_grade, -> { order('grade desc') } 
+  # scope :sort_by_color -> (selected_color) { where('color: selected_color') }
   
   # scope :filter_by_grades -> (min_grade, max_grade) { where(grade: (min_grade..max_grade)) }
   # scope :filter_by_style -> (selected_style) { where(style: selected_style) }
@@ -50,4 +51,6 @@ class Problem < ApplicationRecord
   def convert_created_at_to_date
     self.created_at.in_time_zone("Eastern Time (US & Canada)").to_date
   end
+  
+
 end

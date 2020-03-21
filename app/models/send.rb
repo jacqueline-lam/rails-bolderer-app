@@ -14,10 +14,15 @@ class Send < ApplicationRecord
   scope :sort_by_grade_asc, -> (user) {
     where(user_id: user).joins(:problem).order('grade asc')
   } 
+
+  scope :sort_sends_by_color, -> (id, selected_color) {
+    sort_by_date.where(user_id: id).joins(:problem).where('problems.color = ?', selected_color)
+  }
+
+  # scope :filter_by_wall -> (selected_wall) { where(wall_id: selected_wall ) }
   # scope :filter_by_grades -> (min_grade, max_grade) { where(grade: (min_grade..max_grade)) }
   # scope :filter_by_style -> (selected_style) { where(style: selected_style) }
-  # scope :filter_by_wall -> (selected_wall) { where(wall_id: selected_wall ) }
-
+  
   # Custom method to verify the state of Send model 
   # Validate send.date_sent > send.problem.created_at date
   def valid_date?
@@ -25,5 +30,5 @@ class Send < ApplicationRecord
       # add message to the errors collection
       errors.add(:date_sent, "must be on or after problem set date")
     end
-  end
+  end  
 end

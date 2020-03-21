@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get '/sends/sort/easiest', to: 'sends#easiest', as: :easiest_sends
     get '/sends/sort/hardest', to: 'sends#hardest', as: :hardest_sends
     get '/sends/sort/favorites', to: 'sends#favorites', as: :favorite_sends
+    get '/sends/sort/color', to: 'sends#color', as: :selected_color_sends
   end 
   
   # Problems

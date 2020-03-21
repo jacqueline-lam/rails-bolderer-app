@@ -13,7 +13,15 @@
   <li><%= link_to "Hardest to easiest", user_hardest_sends_path(@user) %></li> 
   <li><%= link_to "Easiest to hardest", user_easiest_sends_path(@user) %></li> 
   <li><%= link_to "Favorites", user_favorite_sends_path(@user) %></li> 
-</ul><br><hr>
+  <%# Filter by color %>
+  <li>
+  <%= form_tag(user_selected_color_sends_path(@user), method: 'get') do %>
+  <%= select_tag :color, options_for_select(Problem::COLORS), prompt: 'Filter by Color'%>
+    <%= submit_tag :filter, class: "btn btn-outline-primary btn-sm" %>
+  <% end %>   
+  </li>
+</ul>
+<br><hr>
 
 <h2> All Results </h2>
 <!-- Display sends -->
