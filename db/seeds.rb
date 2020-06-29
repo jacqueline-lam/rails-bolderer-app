@@ -70,7 +70,7 @@ user_1.save!
 user_2.save!
 user_3.save!
 
-base_date = '1/2/2020'.to_date
+base_date = Date.today - 1.month - 15.days
 
 problem_data = [
   # Sent by User 1
@@ -142,7 +142,7 @@ send_data = [
   [base_date + 1.month + 1.day, 2, '<blockquote class="imgur-embed-pub" lang="en" data-id="BWXmhDe"><a href="//imgur.com/BWXmhDe"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', false, user_1.id, "Sketchy White V4"],
   [base_date + 1.month + 1.day, 5, '<blockquote class="imgur-embed-pub" lang="en" data-id="Ow60old"><a href="https://imgur.com/Ow60old">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', false, user_1.id, "Slopey Black V5"],
   [base_date + 1.month + 5.day, 5, '<blockquote class="imgur-embed-pub" lang="en" data-id="KbYlRIY"><a href="https://imgur.com/KbYlRIY">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', true, user_1.id, "Technical Green V5"],
-  [base_date + 1.month + 15.day, 23, '<blockquote class="imgur-embed-pub" lang="en" data-id="CzGchCO"><a href="https://imgur.com/CzGchCO">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', true, user_1.id, "Purple V6"],
+  [base_date + 1.month + 13.day, 23, '<blockquote class="imgur-embed-pub" lang="en" data-id="CzGchCO"><a href="https://imgur.com/CzGchCO">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', true, user_1.id, "Purple V6"],
   [base_date + 1.month + 1.day, 4, '<blockquote class="imgur-embed-pub" lang="en" data-id="fpgHgnx"><a href="https://imgur.com/fpgHgnx">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', false, user_1.id, "White Deadpoint V5"],
   # Sent by User 2
   [base_date, 3, '<blockquote class="imgur-embed-pub" lang="en" data-id="WfBSvVr"><a href="//imgur.com/WfBSvVr">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>', false, user_2.id, "Blue V6"],
@@ -155,7 +155,7 @@ send_data = [
   [base_date + 3.day, 3, nil, false, user_3.id, "Blue V8"],
   [base_date + 3.day, 5, nil, true, user_3.id, "Pink V8"],
   [base_date + 1.month + 1.day, 2, nil, false, user_3.id, "Black V7"],
-  [base_date + 1.month + 5.day, 7, nil, true, user_3.id, "Blue V9"], 
+  [base_date + 1.month + 5.day, 7, nil, true, user_3.id, "Blue V9"],
 ]
 
 # Create dummy Sends

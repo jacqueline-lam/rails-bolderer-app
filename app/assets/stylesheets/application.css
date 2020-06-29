@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
 /* Fonts
 ----------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css?family=Roboto');
@@ -43,7 +43,7 @@
   padding: 10px;
   background-color: #28a745;
   color: white;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
   border-radius: .25rem;
 }
 
