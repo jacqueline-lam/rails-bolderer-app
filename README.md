@@ -5,8 +5,6 @@ This Rails-based app is designed by jacqueline-lam, as a Rails porfolio project 
 
 The app provides aspiring boulderers with the opprounity to browse problems set in the indoor climbing gym, keep track of their sends, and cheer on others' climbing progress as well!
 
-public/images/rails-bolderer-app_all-users.png
-
 ![All Users Page](./public/images/rails-bolderer-app_all-users.png)
 * [Blog Post](https://dev.to/jacquelinelam/ruby-on-rails-app-domain-with-many-to-many-relationships-3f5i)
 
@@ -26,6 +24,7 @@ public/images/rails-bolderer-app_all-users.png
 6. SQLite3 for data persistence
 7. Omniauth for 3rd party authentication
 8. HTML and customized Bootstrap CSS
+
 
 ## Installation
 Download zip from my project repository: https://github.com/jacqueline-lam/rails-bolderer-app
