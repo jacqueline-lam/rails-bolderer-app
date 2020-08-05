@@ -1,12 +1,33 @@
 # Rails Bolderer Web Application
 
+## Overview
 This Rails-based app is designed by jacqueline-lam, as a Rails porfolio project for the Flatiron School Software Engineering cirriculum.
 
 The app provides aspiring boulderers with the opprounity to browse problems set in the indoor climbing gym, keep track of their sends, and cheer on others' climbing progress as well!
 
+public/images/rails-bolderer-app_all-users.png
+
+![All Users Page](./public/images/rails-bolderer-app_all-users.png)
+* [Blog Post](https://dev.to/jacquelinelam/ruby-on-rails-app-domain-with-many-to-many-relationships-3f5i)
+
+## Features
+* Login Page: Authentication system oAuth2 allows login from GitHub
+* User Sends: User can sort their sends by difficulty, date and color
+* User Sends: User can create a log by choosing an existing problem or creating a new problem
+* All Problems: User can browse problems and see which users have sent a specific problem and read their log
+* Validation Errors: Alert messages describing the validation failures will pop up if invalid form inputs or invalid URLs are entered
+
+## Technologies Implemented
+1. Ruby on Rails
+2. Ruby Gem BCrypt to secure users' data by encrypting their passwords
+3. ActiveRecord Associations
+4. RESTful architecture for CRUD actions
+5. MVC design pattern
+6. SQLite3 for data persistence
+7. Omniauth for 3rd party authentication
+8. HTML and customized Bootstrap CSS
 
 ## Installation
-
 Download zip from my project repository: https://github.com/jacqueline-lam/rails-bolderer-app
 
 Go to your terminal and change directory:
